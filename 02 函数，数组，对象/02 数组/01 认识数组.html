@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var a1 = 23;
+    var a2 = 100;
+    var a3 = "ceshi";
+
+    // 一个性要保存多个数据
+    // 数组(Array) 数据容器，可以保存多组数据
+    // array:连续存储的数据集合，有序的集合
+    var array = [a1,a2,a3,100];
+    console.log(array);
+
+    /**
+     使用数组的好处：
+     1.减少内存的开销，
+     2.查找速度比较快
+     什么情况下会使用数组
+     1.数据较多的情况下
+     2.顺序比较重要的情况下
+    */ 
+
+</script>
+
+<script>
+    // -------数组的创建方式
+    // 字面量
+    var arr = [1,2,'444'];
+    console.log(arr);
+    console.log(typeof arr);
+
+    // 使用Array函数来创建
+    var arr = Array(1,2,"4444");
+    console.log(arr);
+
+    // 使用构造函数来创建数组
+    arr = new Array(2,3,5);
+    console.log(arr);
+
+    // function Array(a,b,c){
+    //     // return arrayobject
+    // }
+</script>
+
+<script>
+    var studentArr = ["王五",'李四',"张三"];
+
+    console.log("获取数组的长度："+studentArr.length);
+    
+    // --------获取数组中的元素
+    // 数组的索引，下标，表示元素在数组中的位置
+    // 索引，下标 从0开始
+    console.log(studentArr[0]);
+    console.log(studentArr[2]);
+
+    // 更改数组元素
+    studentArr[0] = "wangwu"
+    console.log(studentArr)
+
+    // 判断数组中是否含有“王五”这个字符
+    var isContainer = false;
+    for(var i = 0;i < studentArr.length; i++){
+        if (studentArr[i] == "wangwu333"){
+            isContainer = true;
+            // console.log("包含")
+            break;
+        }
+    }
+    if (isContainer){
+        console.log("包含")
+    }
+    else{
+        console.log("不包含")
+    }
+
+    // 遍历数组：
+    // for
+    for(var i = 0;i < arr.length;i++){
+
+    }
+    // for-in
+    for(var index in studentArr){
+        console.log(index);
+        console.log(studentArr[index])
+    }
+    // forEach
+    // 第一个项是元素 第二项 索引 第三项是数组本身
+    studentArr.forEach(function(item,index,array){
+        console.log(index,item,array);
+    })
+    studentArr.forEach(function(aa){
+        console.log(aa);
+    })
+
+</script>
+
+<script>  
+    //数组【】 里面放置的是单个的数据，每个数据用逗号隔开  
+    var  aa = [];
+    // 对象{} 里面放置的KV (key-value)键值对 每一对用逗号隔开
+    var bb = {name:"xiaomei",age:34}
+</script>

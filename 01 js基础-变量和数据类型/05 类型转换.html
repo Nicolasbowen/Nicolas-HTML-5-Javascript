@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--calc() 函数 ()内是函数的参数-->
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // --------其他类型转换为boolean类型
+    var num = 34;
+    var bool = Boolean(num);
+    bool = Boolean(-34);
+    bool = Boolean([]);
+
+    // Boolean()函数　作用：可以将其他类型的数据转换为Boolean类型的数据
+    // false
+    bool = Boolean(0)
+    bool = Boolean(null);
+    bool = Boolean("")
+    bool = Boolean(undefined);
+
+    bool = Boolean(false);
+    console.log(typeof bool);
+    
+    console.log(bool);
+    if (new Boolean(false)){//真  对象
+        console.log("-----new")
+    }
+    if(Boolean(false)){//假 Boolean类型的值false
+        console.log("----------");
+    }
+    if (false){//假
+        console.log("---")
+    }
+
+</script>
+
+<script>
+    // --------其他类型转换为number类型
+    var bool = false;
+    // Number() 函数 ()内是参数 作用 ：将()内的数据转换为number类型
+    var num = Number(bool);//0
+    console.log(num);
+    num = Number("true");//NaN not a number 不是个数字
+    num = Number("");//0
+    num = Number("123")//123
+    console.log(num);
+    
+</script>
+
+<script>
+    // --------其他类型转换为String类型
+    var num = 34;
+    var str = num.toString();
+    console.log(str,typeof str);
+
+    var bool = false;
+    str = bool.toString();
+    console.log(str);
+    
+
+
+</script>

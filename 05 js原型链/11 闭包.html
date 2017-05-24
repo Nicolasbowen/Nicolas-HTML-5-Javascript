@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 全局变量可以直接在方法中使用
+    var test = 23;
+
+    function method(){
+        console.log(test);
+
+        // 局部变量只能在方法体内使用
+        var test2 = 100;
+        test2 = 34;
+
+        function nei(){
+            test2 = 23;
+            return test2*100;
+        }
+        return nei;
+    }
+    var aNei = method();
+    // var sum = test2*100;
+    // 相当于将函数内部的局部变量在函数外部进行操作
+    var sum = aNei();
+    console.log(sum);
+
+    /*
+    类似上面把一个函数作为另一个函数的返回值的这种形式就叫做闭包
+    使一个局部变量可以全局使用，就可以使用闭包
+    闭包作用：
+    1.在函数外部访问函数内部的值
+    2.保护局部变量不被释放
+    */ 
+    
+    function method2(){
+        var test2 = 100;
+        return function(){
+            test2 ++;
+            return test2
+        };
+    }
+    var test = method2();
+    console.log(test())
+    console.log(test())
+    console.log(test())
+    console.log(test())
+
+    function method3(){
+        var test2 = 100;
+        test2 ++;
+        return  ;
+    }
+    console.log(method3());
+    console.log(method3());
+    console.log(method3());
+    console.log(method3());
+
+</script>

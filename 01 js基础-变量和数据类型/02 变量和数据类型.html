@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!--
+    js 一门编程语言 编写程序
+    程序:数据+算法
+    处理数据：存取问题（存取数据）
+    把数据存入内存
+    存储的地址
+    使用变量来保存某个数据的地址
+    变量:(可变的量)
+-->
+<script>
+// var 关键字用来声明变量
+// 声明一个变量，变量名字叫address 这个变量保存了一个值1000
+    var address = 1000;
+// 当我们需要使用1000这个数据时，就可以找address
+
+    // 输出变量的值
+    console.log(address);
+
+    address = 3000;
+
+    var other = 100;
+
+    //+ - * /
+    var  sum = address + other;
+    console.log(sum);
+
+</script>
+<!--
+    变量的命名规则
+    1.尽量有意义
+    2.不要以汉字作为命名 不要以数字作为开头 不要以关键字作为命名
+    3.使用驼峰命名法的方式来命名
+    (第一个单词首字母小写，从第二个单词起，首字母大写)
+    4.可以由数字，字母，下划线组成
+
+-->
+<script>
+
+    var visible_1 = 45;
+    var geShuiJiSuanQi = '';
+    var geshuijisuanqi = "dddd";
+    var apple = 20;
+    var orange = 43;
+    // var var = 45;
+
+</script>
+<script>
+//  变量类型只有一种var (弱类型的语言)
+//  数据的类型:number（数字）string（字符串）boolean undefined null object array
+// number（数字）string（字符串）boolean 基本数据数据类型
+/**
+ * number类型
+ */
+    var num = 23;
+    num = -12;
+    num = 1.2;
+    num = 0xFF;//0x开头 表示十六进制的数据（0~9a~f）
+    num = 0b1010100;//0b开头表示二进制的数据（0 1）
+    num = 2e3;//指数表示法 2*10的2次方
+    // 输出变量的值
+    console.log(num);
+    // 输出的变量的数据的类型
+    console.log(typeof num);
+
+/**
+ * string 字符串 用引号包裹一串字符串
+ */ 
+    var str = "";//空字符串
+    str = '';//空字符串
+    str = '22222'
+    str = " i am from zhengzhou"
+    str = 'call me "xiomei"'
+    str = "孔子说'知之为。。。。。'"
+    // str = "ddd"ddd"ddd"
+    console.log(str);
+    console.log(typeof str);
+
+/**
+ * boolean （布尔类型）只有两个值 true 表示真 false表示假
+ * */
+    var boo = true;
+    boo = false;
+    console.log(boo)
+    console.log(typeof boo)
+
+/**
+ * undefined 未定义
+ */ 
+    var test = 4;
+    console.log(test);
+    var test;
+    console.log('test:',test);//4
+
+/**
+ * null 没有内容 可以用来清空变量
+ */     
+    var test2 = null;
+    // 万事万物都是对象object
+    console.log(typeof test2);//object
+    console.log(test2);
+
+/**
+ * object 对象类型
+ */     
+    var obj = {name:"xiaomei",age:23}
+    console.log(obj);
+/**
+ * array 数组类型
+ * */    
+    var arr = ["小猫",'小狗']
+    console.log(arr);
+</script>

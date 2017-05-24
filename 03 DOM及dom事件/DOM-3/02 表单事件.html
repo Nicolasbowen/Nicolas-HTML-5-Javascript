@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text">
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+    </form>
+</body>
+
+</html>
+<script>
+    var form = document.querySelector("form");
+    // 当表单被提交时
+    form.onsubmit = function(){
+        alert("33333");
+        console.log("提交");
+    }
+    form.onclick = function(){
+        console.log("click");
+    }
+    // 当表单被重置时触发
+    form.onreset = function(){
+        console.log("reset");
+    }
+
+    var input = document.querySelector("input[type='text']");
+    // 当输入框获取焦点时触发
+    // （光标处于输入框内叫获取焦点，从输入框内消失叫失去焦点）
+    input.onfocus = function(){
+        console.log("focus");
+    }
+    // 当输入框失去焦点时触发
+    input.onblur = function(){
+        console.log("blur");
+    }
+
+</script>

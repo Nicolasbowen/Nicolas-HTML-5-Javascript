@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // window的方法
+    function test(){
+        console.log("test");
+    }
+
+    window.test();
+    // window. 可以省略
+    test();
+
+    test2 = 56;
+    console.log(test2);
+    console.log(window.test2);
+
+    function method(){
+        // window的属性
+        test3 = 1000;
+        var test4 = 2000;
+    }
+    method();
+    // window对象的全局的，在这里相当于输出window的属性值
+    console.log(test3);
+
+    console.log(test4);
+
+</script>
+
+
+<script>
+    // 方法中使用的this关键字指向谁，
+    // 就看这个方法的拥有者是谁
+    // 方法的拥有者永远是方法的执行者（调用者）
+// aaa = 45;
+    function aa(){
+        console.log(this);
+    }
+    aa();
+    window.aa();
+
+    var person = {
+        age:18,
+        getAge:function(){
+            console.log(this)
+            return this.age;
+        }
+    }
+   
+    var age =  person.getAge();
+    console.log(age);
+
+
+</script>

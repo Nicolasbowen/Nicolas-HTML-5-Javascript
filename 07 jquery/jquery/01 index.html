@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script>
+        console.log($(document));
+        console.log($("html"));
+        // $(document).ready(function(){
+        //     alert("123");
+        // })
+        $(function(){
+            alert("123");
+        })
+    </script>
+    <p>我是p标签</p>
+    <p>dddd</p>
+</body>
+</html>
+
+<!--<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>-->
+
+
+<script>
+    // html标签对象
+    var p = document.getElementsByTagName("p")[0];
+    console.log(p);
+
+    // jquery对象
+    var pp = $("p");
+    console.log(pp);
+    // $() => document.querySelectorAll();
+    console.log($("body>p"));
+
+</script>
+
+<script>
+    // .css()方法 可以设置jquey对象的样式（操作的是行内样式）
+    $("p").css("border","1px solid red");
+
+    // innerText
+    $("p").text("pppppppppppppppppppppppppppppp")
+    // innerHtml
+    $("p").html("<strong>strongggggggg</strong>")
+</script>
+

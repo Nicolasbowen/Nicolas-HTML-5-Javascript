@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 变量的作用域
+    // 变量的作用（使用）范围
+    // 方法的方法体，就构成一个作用域，
+    // 在内部声明的变量，不能够拿到外部来使用
+    // 那么如果想要在外部使用内部的值，可以使用返回值
+    // function作用域
+    // 全局变量
+    var sum = 0;
+    function method(){
+        // 把在function内声明的变量叫做局部变量
+        var a = 12;
+        var b = 34;
+        sum = a +b + a + b;
+        return a + b;
+    }
+
+    
+    console.log(sum);
+    var c = method();
+    console.log(c);
+    console.log(sum)
+
+    // var c = a + b;
+    // console.log(c);
+
+    // if while .... 这些普通语句，并不能构成一个作用域
+    // 在内部声明的变量，只要程序执行到，就可以拿到外部来使用
+    if(true){
+        var a = 12;
+        var b = 34;
+    }
+    var c = a + b;
+    console.log(c);
+</script>

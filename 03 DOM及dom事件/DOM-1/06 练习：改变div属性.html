@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style lang="">
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 10px auto;
+        }
+    </style>
+    <script>
+        // alert("aaaaaa");
+        // 当页面加载完毕之后，执行
+        window.onload = function(){
+            // alert("ddddddd");
+            var buttons = document.querySelectorAll("button")
+            var div = document.querySelector("div");
+
+            var style = ["width","display"]
+            var value = ["300px","none"]
+
+            // 遍历容器，给容器内的每个元素都添加一个click事件
+            // 每个元素都分别添加了一个点击事件，
+            // 点击哪个按钮，哪个按钮的事件函数就会被执行
+            // for(var i = 0;i < buttons.length;i ++){
+            //     buttons[i].onclick = function(event){
+            //         // console.log(event);
+            //         // console.log(this);
+            //         // 当点击按钮，获取i的值时，全局变量i的值为3,
+            //         // (for循环早已经执行完毕，取到的值还是3)
+            //         // console.log(i);
+            //         // 错误的，取不到对应的按钮
+            //         // buttons[i].style.backgroundColor = "black";
+            //         // 使用this或者event.target获取当前被触发的按钮
+            //         // this.style.backgroundColor = "black";
+            //     }
+            // }
+
+            // 不使用了var  而使用let来声明索引值
+            for(let i = 0;i < buttons.length;i ++){
+                buttons[i].onclick = function(event){
+
+                    // event.target this
+
+                    console.log(i);
+                    
+                    if (i == buttons.length-1){
+                        //取消div的行内样式
+                        div.style = {};
+                        return;   
+                    }
+
+                    var aStyle = style[i];
+                    var aValue = value[i];
+                    // 设置div的style属性的内容（style对象）
+                    div.style[aStyle] = aValue;
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <center>
+        <button>变宽</button>
+        <button>隐藏</button>
+        <button>重置</button>
+    </center>
+    <div></div>
+</body>
+</html>

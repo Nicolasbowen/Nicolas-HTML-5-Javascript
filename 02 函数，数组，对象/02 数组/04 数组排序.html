@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 排序 升序
+    // 将数组中从第一个元素起都跟后面的所有的元素对比，
+    //如果前者大，则交换位置
+    function paiXu(array){
+        for(var i = 0;i < array.length;i ++){
+            // array[i]  跟 后面 所有的元素对比
+            for (var j = i +1 ;j < array.length;j ++ ){
+                if (array[i] > array[j]){
+                    //交换两个元素的位置
+                    var temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+
+        return array;
+    }
+    var arr = [3.4,6.7,1.2,4.5,45];
+    console.log(paiXu(arr));
+</script>
+
+<script>
+    // [3.4,6.7,1.2,4.5,45]
+    // 求最大值
+    
+    function maxValue(array){
+        var maxIndex = 0;
+        for(var i = 1;i < array.length;i ++){
+            if(array[maxIndex] < array[i]){
+                maxIndex = i;
+            }
+        }
+        return array[maxIndex]
+    }
+    console.log(maxValue(arr));
+</script>
+
+<script>
+    // sort()  "aaa" 2222  比较字符 不加参数
+    // sort(function(a,b){return a-b}) 按数值的大小进行排序的
+</script>

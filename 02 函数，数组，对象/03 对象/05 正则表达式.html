@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form action="">
+        <!--限制此输入框只能输入数字-->
+        <input type="text" pattern="^[0-9]*$">
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
+<script>
+    // 创建正则表达式对象
+    var reg = /ab+c/gi;
+    // console.log(reg);
+    // var reg2 = new RegExp("ab+c");
+    // console.log(reg);
+
+    var  result = reg.exec("abbbbbbbbbbcAiiiaaabbbbbcdefg");
+    console.log(result);
+
+    var result = "abbcAiiiaaabbbbbcdefg".match(/ab+c/g);
+    console.log("ceshi",result);
+
+    var str = "ABCDEFGabcdefg";
+    var result = str.match(/[A-C]/);
+    console.log(result);
+
+    str = "give me some sunshine,give me a smile.give me some sunshine,give me a smile.";
+    var array = str.split(/[\s,\.]/);
+    console.log(array);
+
+
+</script>

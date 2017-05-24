@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //    1. (2分)
+    /**
+     1.js是解释性的语言，无需编译，直接执行
+     2.js是一种轻量级的语言
+     3.相对编程语言，易学易用，类型松散
+     4.相对变成语言开发速度快
+     5.开发程序一般容易部署，因为不需要编译和打包的过程
+     
+     */
+    // 2.（2分）string number boolean array object undefined null
+    // 3.（3分）2：number "2":string new Boolean(2):object
+    //     number(2):number new Number(2): object
+    // 4.(8分)
+    function method() {
+        console.log("333");
+    }
+    // 无参无返回值的方法
+    method();
+
+    function method2(aa, bb) {
+        // 如果再次声明一个跟参数的名字一样的变量，
+        // 则会把变量的值给覆盖掉
+        // var aa = 45;
+        // var bb = 45;
+        var sum = aa + bb;
+
+        // cc = 45 + 56;
+    }
+    // 有参无返回值的方法
+    var v1 = 45;
+    var v2 = 45;
+    method2(v1, v2);
+
+    method2(12, 56);
+
+    function method3() {
+        return 1000;
+    }
+    // 无参有返回值
+    var result = method3();
+    console.log(result);
+
+    function method4(r) {
+        var mianji = Math.PI * r * r;
+        return mianji;
+    }
+    // 有参有返回值
+    // 有返回值的方法，我们可以使用变量来接受这个返回值
+    var result = method4(23);
+    console.log(result);
+
+    // 5.(2分)
+    // 参数：函数外部传入函数内部的值
+    // 返回值：函数内部传出到函数外部的值
+
+    // 6.（2分）
+    // 首先没有调用方法  其次输出语言在return之后，不能被程序执行
+
+    // 7.（1分）
+    // 第一个可以被执行到
+    if ({}) {
+        console.log("aaa");
+    }
+    // 8.(3分)
+    var score = 70;
+    var result = score > 60 ? "及格" : "不及格";
+    alert(result);
+
+    // 9.(2分) "123" -22
+
+    //10 (3分) 100 100 10
+    var a = 10;
+    function test() {
+        var a = 100;
+        console.log(a);
+        // var a ;
+        console.log(a);
+    }
+
+    console.log(a);
+    test();
+
+    console.log(a);
+
+    //11.(2分)
+    // var 变量，只有方法体才能构成一个封闭作用域
+    function method() {
+        // var i = 0;
+    }
+    // console.log(i);
+
+    for (var i = 0; i < 10; i++) {
+
+    }
+    console.log(i);//10
+    // var a = 19; 
+    // var b = 34;
+    // console.log(a+b); 
+
+    // let 变量 块级域 （{}是可以包裹一块代码段）
+    // let只要声明某个跨级域内，那么这个变量就这个在这个区域内使用
+    // 超出不能使用
+    for (let j = 0; j < 10; j++) {
+
+    }
+
+    // console.log(j);//j 语法错误未声明
+
+
+    // 12 （2分）
+    // 1 4 
+    // 13（2分）  
+    // 数组：有序 顺序是比较重要的时候，
+    //       这些表示是同一种类型的数据时，可以优先选择使用数组
+    // 对象：当这些数据分别表示不同的含义时可以使用对象，顺序是不重要的
+
+    // 14 （2分）
+    // 
+    var aa = [[1, 2], ["333", "4444"], { name: "小美", age: 18 }]
+    console.log(aa[1][0]);
+    console.log(aa[2].name);
+
+    // 15 (8分)
+
+    function getMax(a, b, c) {
+        // 最大值只有一个，a,b,c 都有可能
+        // 假设a为最大，跟b比较
+        // 可以找到a b 中的大的值
+        // 这个值可能是最大值
+        // 拿跟c比较 大的值就是最大值
+        var max = a;
+        if (max < b) {
+            max = b;
+        }
+        if (max < c) {
+            max = c;
+        }
+        return max;
+    }
+    console.log(getMax(23, 45, 1));
+
+    function getMax2(a,b,c){
+         return (a>b)?(a>c?a:c):((b<c)?c:b);
+    }
+    console.log(getMax2(23,14,9));
+
+// 16 （8分）
+    // 声明一个变量 ，用于累加所有的数据的和
+    var sum = 0;//放在for循环之上声明
+    for (var i = 1;i < 100;i ++ ){
+        if (i%2 == 1){
+            console.log(i);
+            // 在原有的基础上加上当前循环所得的i值（i为奇数）
+            sum += i;
+        }
+    }
+
+    console.log(sum);
+
+// 17  （3分）
+// (1).版本管理系统
+// (2)git命令git add . git commit -m "提交说明"
+// 在vscode当中直接ctl + enter
+// (3)git push
+
+//  18(5分) 实例 对象
+    var zhangQi = new Object();
+    zhangQi.name = "zhangqi";
+    zhangQi.age = 23;
+    zhangQi.fuse = "黄色";
+    zhangQi.speak = function (){
+       console.log(this.name);
+    }
+
+    var zhang = {
+
+    }
+// 19.(5分)
+
+
+</script>

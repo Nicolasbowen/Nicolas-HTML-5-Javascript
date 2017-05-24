@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+// 总工资
+    var zGongzi = 3000;
+//  基准工资
+    var jzGongzi = null;
+
+    if (zGongzi <= 7662){
+        jzGongzi = zGongzi;
+    }
+    else {
+        jzGongzi = 7662;
+    }
+
+    // console.log(jzGongzi);
+    
+    var bili = 2/100 + 0.5/100 + 12/100 + 8/100;
+    console.log(bili);
+
+    var sanXianYiJin = jzGongzi * bili;
+
+    var suodeE = zGongzi - sanXianYiJin - 3500;
+
+    // 声明变量并赋值为0
+    var shuiE = 0;
+
+    var shuiLv = 0;
+    var kouchushu = 0;
+    if (suodeE <= 0){
+        console.log("您不需要给国家做贡献")
+    }
+    else if (suodeE <= 1500){
+        shuiLv = 0.03;
+        kouchushu = 0;
+    }
+    else if (/*suodeE > 1500 &&*/ suodeE <= 4500){
+         shuiLv = 0.1;
+         kouchushu = 105;
+    }
+    else if (/*suodeE > 4500 &&*/ suodeE <= 9000){
+         shuiLv = 0.2;
+         kouchushu = 555;
+    }
+    else if (suodeE <= 35000){
+        shuiLv = 0.25;
+        kouchushu = 1005;
+    }
+    else if (suodeE <= 55000){
+        shuiLv = 0.3;
+        kouchushu = 2755;
+
+
+    }
+    else if (suodeE <= 80000){
+        shuiLv = 0.35;
+        kouchushu = 5505;
+    }
+    else {
+        shuiLv = 0.45;
+        kouchushu = 13505;
+    }
+
+
+    // console.log(shuiLv)
+    // console.log(kouchushu);
+
+    // console.log(suodeE);
+
+    shuiE = suodeE * shuiLv - kouchushu;
+
+    console.log(shuiE);
+
+</script>

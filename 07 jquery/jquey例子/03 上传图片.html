@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        img{
+            width: 100px;
+        }
+        form input[type="file"]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+   <form action="">
+       <div id="choose">
+           <img src="img/add.png" alt="">
+           <input type="file">
+           <img src="img/add.png" alt="">
+           <input type="file">
+           <img src="img/add.png" alt="">
+           <input type="file">
+       </div>
+       <input type="button" value="点击添加">
+   </form>
+</body>
+</html>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $("#choose").on("click","img",function(){
+        // 获取当前元素(img)的下一个元素(input)，并触发这个元素的click事件
+        $(this).next().click();
+    })
+
+    $("#choose").on("change","input",function(event){
+        console.log(event);
+        console.log(event.target.files)
+        console.log(event.originalEvent.originalTarget.files);
+        console.log($(this));
+        console.log($(this)[0].files);
+        // console.log($(this)[0]);
+        console.log(this);
+        console.log(this.files);
+        // this -- > 被触发的标签元素 input
+        // $(this) --> ............jquery对象 -->得到标签对象 取第一个元素$(this)[0]
+        // event.target -->input
+        // event.originalEvent.originalTarget -->input
+
+        // input.files --->文件列表
+
+        // 获取到文件列表中的文件
+        var file = $(this)[0].files[0];
+        // 判断文件的类型是否以image作为开头
+        if (file.type.startsWith("image")){
+            // 根据文件对象获取文件路径
+            var imgsrc = URL.createObjectURL(file);
+            // 设置当前元素的上一个元素的属性src为 imgsrc
+            $(this).prev().attr("src",imgsrc);
+        }
+
+    })
+
+    $("input:button").click(function(){
+        $('#choose').append("<img src='img/add.png'></img><input type='file'/>")
+    })
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 隐式转换-->自动转换
+    // + 运算符 
+    // 当+左右两边含有string时，那么就讲其他类型转换为string，进行字符串的拼接
+    // 如果不含有字符串，那么+执行的就是number类型的相加操作
+    // string > number > boolean
+    var num = 34;
+    var bool = true;
+    var bool2 = false;
+    var  str = "45";
+    var str2 = "strstr";
+    var sum =  str + num;
+    sum = str + str2;
+    sum = str + bool;
+    console.log(sum);
+
+    sum = num + bool;
+    console.log(sum);
+
+    sum = bool + bool;
+    console.log(sum);
+    
+    // - (* / )运算符 执行的的是减法操作，其他类型要转换为number类型
+    sum = str2 - num;
+    sum = bool - bool2;
+    console.log(sum);
+
+
+</script>

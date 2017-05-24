@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<!--
+    流程控制
+    登录成功 ---》主页
+    登录失败---》找回密码
+    分支控制：ifelse switchcase
+    循环控制：for while dowhile
+-->
+<script>
+    // if语句 条件语句
+    var a = 3;
+    if (a == 3) {
+        console.log(" a==3 --------------");
+        // a = a +3;
+    }
+    // 如果if后（）内的条件成立，则执行{}内的内容
+    // 否则不执行（跳过）
+
+    if (a == 3) {
+        console.log("a==3");
+    }
+    else {
+        console.log("a!=3");
+    }
+    // if..else
+    // if后面的（）里的条件成立，则执行if后{}内的代码，
+    // 否则执行else后{}内的代码
+
+    // var a = 33;
+    // if (a > 3){
+    //     console.log("a>3")
+    // }
+    // if(a < 3){
+    //     console.log('a<3')
+    // }
+    // if(a==3){
+    //     console.log('a==3');
+    // }
+
+    if (a > 3) {
+        console.log("a>3")
+    }
+    else if (a == 3) {
+        console.log("a ==3")
+    }
+    else /*if(a<3)*/ {//以上条件都不成立
+        console.log('a<3');
+    }
+    // if ..else if ...else
+    // else 表示的是其余情况
+    // 从上到下对条件进行判定，如果碰到一个成立的条件，
+    //则执行条件后{}内的内容，并结束语句
+    // 如果所有的if后面的条件都不成立，如果含有else{}，
+    //则执行else后{}内的代码
+    a = 3;
+    if (true) {
+        console.log("a>3")
+    }
+    else if (a == 3) {
+        console.log("a ==3")
+    }
+    else /*if(a<3)*/ {//以上条件都不成立
+        console.log('a<3');
+    }
+
+    if (a > 3) {
+        console.log("a>3")
+    }
+    else {
+        if (a == 3) {
+            console.log("a==3")
+        }
+        else {
+            console.log("a<3");
+        }
+    }
+
+</script>
+
+<script>
+    // 
+    // 周一：红烧肉 二：
+    var weekday = 4;
+    // if (weekday == 1){
+    //     console.log("红绕肉")
+    // }
+    // else if(weekday == 2){
+    //     console.log("拓博")
+    // }
+
+    // statement
+    // 要进行匹配的变量
+    switch (weekday) {
+        // case 匹配值
+        case 1: {
+            console.log("红绕肉");
+        }
+            // 中断语句 结束语句
+            break;
+        case 2: {
+            console.log("西湖醋鱼");
+        }
+            break;
+        case 3: {
+            console.log("黄焖鸡");
+        }
+            break;
+        case 4: {
+            console.log("黄焖鸡4444");
+        }
+            break;
+        case 5: {
+            console.log("黄焖鸡555");
+        }
+            break;
+        default: {
+            console.log("找不到匹配结果")
+        }
+            break;
+    }
+
+</script>
+
+<script>
+    // 循环执行
+    /**
+     * 语句一：声明变量i（索引）并赋值为0
+     * 语句二：使用声明设定一个条件，可以控制循环的次数
+     * 语句三：使索引的值改变
+     * 先执行第二个语句，判断条件是否成立，
+     * 如果成立，则执行{}内的代码，
+     *     代码执行完毕，执行第三个语句，然后再次的执行第二个语句进行条件判定，
+     *         如果成立，则执行{}内的代码，
+     *             一直循环下去
+     * 如果不成立则结束循环
+     * 
+     * */
+    for (var i = 0; i < 0; i = i + 1) {
+        // console.log('fffffsfsf');
+        //使用log同时输出多个内容
+        console.log("for----", i);
+    }
+
+    i++;//自增
+    i = i + 1;
+    //1-100
+    for (var i = 2; i <= 100; i = i + 2) {
+        // console.log(i);
+
+    }
+    for (var i = 1; i <= 50; i++) {
+        console.log(i * 2);
+    }
+
+    for (var i = 1; i < 101; i++) {
+        if (i % 2 == 0) {
+            console.log(i);
+
+        }
+    }
+
+    // 输出乘法口诀表
+    for (var i = 1; i < 10; i++) {
+        // console.log(i);//1--9
+        // i * 1到9
+        for (var j = i; j < 10; j++) {
+            //j 1-9
+            // console.log(i,'    ',j);
+            // 1*1=1
+            console.log(i, "*", j, '=', i * j);
+            console.log(i+"*"+j+"="+i*j);
+        }
+    }
+
+    // ++ 自增  -- 自减
+    var a = 2;
+    a++;//a=a+1
+    console.log(a);
+
+    ++a;//a = a + 1;
+    console.log(a);
+
+    a = 10;
+    var b = a++;//++在后，先赋值再++
+    console.log(b, a);//10
+
+    a = 10;
+    var c = ++a;//++在前，先++再赋值
+    console.log(c, a);//11
+
+</script>
+
+<script>
+    // condition 条件
+    var isPlay = true;
+    while (isPlay) {
+
+        console.log("敲");
+        isPlay = false;
+    }
+    // 如果（）内的条件成立，则执行{}内的代码块
+    // 执行继续判定条件
+    // 如果不成立，则结束语句
+
+
+    // 输出10以内 能被3整除的数据
+    for (var i = 0; i <= 10; i++) {
+        if (i % 3 == 0) {
+            // console.log(i);
+        }
+    }
+    var count = 10;
+    while (count >= 0) {
+        if (count % 3 == 0) {
+            console.log(count);
+        }
+
+        // console.log(count);
+
+        count--;
+    }
+    var count = 0;
+    while (count <= 10) {
+        if (count % 3 == 0) {
+            console.log(count);
+        }
+        count++
+    }
+
+
+
+</script>
+
+<script>
+    // do...while
+    // do{ 
+    //     // 代码块
+    // }while(条件);
+    var a = 2;
+    do{
+        console.log("aaaaaaaaaaaa");
+        a--;
+    }while(a>0);
+
+    //先执行一次代码块，然后再进行条件判定，如果条件成立，则继续执行
+    //否则结束语句
+
+    do{
+        console.log('bb')
+    }while(false)
+
+    while(false){
+        console.log('cc');
+    }
+
+</script>
+
+<script>
+    // 逻辑运算符
+    // && 并且 连接多个条件，如果条件都成立（为真），则结果为真，否则结果为假
+    //  ||或者 。。。。。。。。。。。。为假，则结果为假，否则为真
+    // ！取反  放在条件前面，。。。。。为真，则结果为假，否则为真
+    
+    // 如果今天周末，而且作业写完了，那么我们就出去郊游
+    var weekday = 6;
+    var isOver = false;
+    if (weekday == 6 && isOver == true){
+        console.log("郊游");
+    }
+    // 如果电梯关闭了，或者 我们在4楼以下，那么我们就走楼梯 
+
+    var open = true;
+    var floor = 30;
+    if (open == false || floor <= 4){
+        console.log("走楼梯");
+    }
+
+    // 取反
+    if(!true){
+        console.log('!true')
+    }
+
+    if(!(floor == 3)){
+
+    }
+    if(!2){
+
+    }
+    if(2){
+        console.log("222")
+    }
+    if(-2){
+        console.log("-222")
+    }
+    if(0){//假
+        console.log('000');
+        
+    }
+    // 数字也有真假性，非0为真 0为假
+    // undefined null 空字符串为假
+    // 空对象 空数组 为真 
+    var unde;
+    if(unde){//假
+        console.log("undefined")
+    }
+    if(null){//假
+        console.log('null');
+    }
+    if(""){//假
+        console.log('空字符串');
+        
+    }
+    if("dddd"){
+        console.log("非空字符串")
+    }
+    if({name:"xiaomei"}){
+        console.log("对象")
+    }
+    if({}){
+        console.log("空对象")
+    }
+    if(["xiaomei"]){
+        console.log("shuzu")
+    }
+    if([]){
+        console.log("空数组")
+    }
+</script>

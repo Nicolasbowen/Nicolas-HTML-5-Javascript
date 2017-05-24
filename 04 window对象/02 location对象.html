@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="javascript:test();">页面刷新</a>
+    <a href="javascript:test2();">assign重定向</a>
+
+</body>
+</html>
+
+<!--location-->
+<script>
+    // location对象包含了当前的url信息
+    console.log(window.location);   
+    console.log(location); 
+    console.log(document.location);
+
+    // 重定向
+    // location.href = "https://www.baidu.com";
+
+    // 页面刷新
+    function test(){
+        location.reload();
+    }
+
+    // 重定向
+    function test2(){
+        location.assign("https://developer.mozilla.org/zh-CN/")
+    }
+
+
+</script>
+
+
+
+

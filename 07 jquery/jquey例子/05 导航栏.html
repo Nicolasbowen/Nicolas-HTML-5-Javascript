@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        body,html{
+            height: 100%;
+            margin: 0;
+        }
+        ul.drop{
+            width: 80%;
+            height: 60px;
+            padding: 0;
+            margin: 0;
+            background-color: red;
+            list-style: none;
+            margin: 0 auto;
+            
+        }
+        li.drop-menu{
+            float: left;
+            width: 50%;
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+        }
+        li.drop-menu>a{
+
+            color: white;
+            text-decoration: none;
+        }
+        ul.drop-content{
+            display: none;
+            list-style: none;
+            padding: 0;
+            background-color: yellow;
+            width: 100px;
+            margin: 0 auto;
+        }
+
+        main{
+            height: 1000px;
+            background-color: rgba(100, 100, 100, 0.3)
+        }
+
+        aside{
+            position: fixed;
+            right: 0;
+            top: 500px;
+            /*width: 200px;*/
+
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="drop">
+            <li class="drop-menu">
+                <a href="javascript:;">公司简介</a>
+                <ul class="drop-content">
+                    <li>公司实力</li>
+                    <li>公司规模</li>
+                </ul>
+            </li>
+            <li class="drop-menu">
+                <a href="javascript:;">公司简介</a>
+                <ul class="drop-content">
+                    <li>公司实力</li>
+                    <li>公司规模</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main></main>
+    <aside>
+        <button>回到顶部</button><br>
+        <button>回到底部</button>
+    </aside>
+</body>
+</html>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+
+    // 导航
+    // 获取所有的.drop-menu 的jquery对象，然后进行遍历
+    $(".drop-menu").each(function(){
+        // 给每个遍历元素添加hover事件
+        $(this).hover(function(){
+            // 当每个遍历元素的hover事件触发时，
+            // 获取每个遍历元素的孩子元素中的ul设置样式
+            $(this).children("ul").css({
+                display:"block"
+            })
+        })
+
+        $(this).mouseleave(function(){
+            $(this).children("ul").css({
+                display:"none"
+            })
+        })
+
+
+    })
+
+
+    // 侧边功能按钮
+    $("button").first().click(function(){
+        $("html,body").animate({
+            scrollTop:0
+        })
+    })
+    $("button").last().click(function(){
+        $("html,body").animate({
+            scrollTop:$(document).height() - $(window).height()
+        })
+    })
+
+    
+</script>

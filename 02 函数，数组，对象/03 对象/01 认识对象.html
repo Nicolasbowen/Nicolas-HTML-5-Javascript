@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    // 对象 容器
+    // 描述一个人的信息 
+    // name是王五 age是18 skill：编程开发 国籍：中国 一个对象
+    // name是小张 age 45 skil:上课的，国籍：美国 一个对象
+    var name = "王五";
+    var age = 18;
+    var skill = function(){
+        console.log("我可以完成程序开发的功能");
+    }
+    var guoji = "中国"
+
+    var name2 = "王五";
+    var age2 = 18;
+    var skill2 = function(){
+        console.log("我可以完成程序开发的功能");
+    }
+    var guoji2 = "中国"
+
+    // 使用对象来描述一个人的信息
+    // 以键值对的形式而存在 key-Value KV 
+    // value具体的数据 key就是对value的描述
+    var obj = {
+        age:18,
+        "name":"王五",
+        skill:function(){
+            console.log("功能")
+        },
+        guoji:"中国"
+    }
+    /**
+    * 对象是由一堆属性和操作属性的方法组成
+    * 无序的数据容器（可以存放数据，可以存放方法）
+    * 优点：
+    * 1.数据和方法封装在了一起，便于操作
+    * 2.数据和方法之间的联系更加紧密
+    * 什么情况下可以使用对象
+    * 1.有数据又有操作数据的方法时使用
+    * 2.顺序不重要的时候
+    */
+
+    var person = {name:"小张",age:45,guoji:"美国",skill:function(){
+        console.log("shangke");
+    }}
+
+    var array = [obj,person];
+    console.log(array);
+</script>

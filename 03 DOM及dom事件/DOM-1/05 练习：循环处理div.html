@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style lang="">
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            display: inline-block;
+        }
+        section{
+            margin-top: 10px;
+            text-align: center;
+        }
+        .red {
+            background-color: red;
+            border: 1px solid blue;
+        }
+    </style>
+
+</head>
+<body>
+    <center><button>点击切换div样式</button></center>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    
+</body>
+</html>
+<!--
+<script>
+    var button = document.querySelector("center button");
+    var divs = document.querySelectorAll("section div")
+    // 使用一个变量来保存当前div的状态 black：true  red :false;
+    var divStatus = true;
+    button.onclick = function(){
+        
+        if (divStatus == true){
+            for (var i = 0;i < divs.length;i ++){
+                divs[i].style.backgroundColor = "red";
+            }       
+        }
+        else {
+            for (var i = 0;i < divs.length;i ++){
+                divs[i].style.backgroundColor = "black";
+            }
+        }
+        // 切换状态
+        divStatus = !divStatus
+    }
+</script>
+
+-->
+
+<script>
+    var button = document.querySelector("center button");
+    var divs = document.querySelectorAll("section div")
+    var isRed = false;
+    button.onclick = function(){
+        if (isRed == false){
+            for(var i = 0;i < divs.length;i ++){
+                // 设置类名
+                divs[i].className = "red";
+            }
+        }
+        else {
+            for(var i = 0;i < divs.length;i ++){
+                // 取消类名
+                divs[i].className = "";
+            }
+        }
+        isRed = !isRed;
+    }
+
+</script>

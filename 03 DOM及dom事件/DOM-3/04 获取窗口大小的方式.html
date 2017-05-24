@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        section{
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <section></section>
+</body>
+</html>
+<script>
+    console.log(window);
+    a = 45;//window.a 
+    function aa(){
+
+    }//window.aa();
+
+    console.log(document);
+    console.log(window.document);
+
+    // 获取窗口的大小(包含滚动条的大小)
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+
+    // 获取当前屏幕的大小
+    // screen对象包含当前屏幕的一些信息
+    console.log(window.screen.width);
+    console.log(window.screen.height);
+
+    // html（文档） 文档的宽高不是带滚动条的大小的
+    // 获取html大小（文档的可视区域，如果内容较多含有滚动条，这个大小不包含超出的内容）
+    // 实际上就是窗口大小-滚动条的大小
+    console.log("---------client")
+    console.log(document.documentElement.clientWidth);
+    console.log(document.documentElement.clientHeight);
+
+    // html在查看器中展示的大小（文档内容的实际大小）（盒模型当中的大小）
+    console.log("---------offset")
+    console.log(document.documentElement.offsetWidth);
+    console.log(document.documentElement.offsetHeight);
+
+    // 当含有滚动条时，大小为内容大小，不含有滚动时，大小为clientWidth clientHeight
+    console.log("---------scroll")
+    console.log(document.documentElement.scrollWidth);
+    console.log(document.documentElement.scrollHeight);
+
+    // 滚动条的位置
+    console.log(document.documentElement.scrollTop);
+    console.log(document.documentElement.scrollLeft);
+
+</script>

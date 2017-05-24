@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <p>我是p标签</p>
+</body>
+</html>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $("p").hide();
+    $("button").click(function(){
+        
+        // $("p").show();
+        // $("p").toggle();
+
+        // $("p").fadeIn(1000,function(){
+        //     // 动画执行完毕的回调函数
+        //     // 动画执行完毕之后触发
+        //     console.log("00000")
+        //     // $("p").hide();
+        // })
+
+        // $('p').fadeOut("slow",function(){
+        //     console.log("隐藏动画结束")
+        // })
+
+        // $('p').fadeOut("fast");
+
+        // $("p").fadeTo("normal",0.5,function(){
+        //     console.log("fadeto 动画结束")
+        // })
+
+        // $("p").slideDown('slow',function(){
+        //     console.log("slide down");
+        // })
+        // $("p").slideUp("slow",function(){
+        //     console.log("slide up")
+        // })
+    })  
+
+    
+</script>
+
+<style lang="">
+    div{
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        position: absolute;
+    }
+</style>
+<div>
+</div>
+<script>
+    $("button").click(function(){
+        // $("div").animate({
+        //     left:"400px"
+        // },"slow","linear",function(){
+        //     console.log("动画结束");
+        // })
+
+        // 此时，动画队列中有两个动画，执行时，动画不是一起执行的
+        // 而是按照顺序执行
+        // $("div").animate({
+        //     left:200,
+        // }).animate({
+        //     top:200
+        // })
+        $("div")
+        .animate({left:200})
+        .delay(1000)
+        .fadeTo('slow',0.5)
+    })
+</script>

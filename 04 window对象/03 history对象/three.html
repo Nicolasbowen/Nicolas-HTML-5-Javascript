@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        div{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>页面3</h1>
+    <button onclick="history.forward()">前进</button>
+    <button onclick="history.back()">后退</button>
+    <!--<a href="two.html">进入第二个页面</a>-->
+    <button onclick="history.go(-2)">go到第一个页面</button>
+    <p onclick="console.log(history)">点击我查看history</p>
+
+    <br>
+    <br>
+    <br>
+    <button onclick="progress(25)">进度25%</button>
+    <button onclick="progress(50)">进度50%</button>
+    <button onclick="progress(75)">进度75%</button>
+    <button onclick="progress(100)">进度100%</button>
+    <div>
+        <progress max="100" value="0"></progress>
+    </div>
+</body>
+</html>
+
+<script>
+    // 在当前文档当中创建和激活历史记录条目
+    // history.pushState(state,title,URL)
+
+
+    function progress(value){
+        // 设置进度条的值
+        document.querySelector("progress").value = value;
+        // #(hash)在url地址中表示某个位置标识符，浏览器读取位置后会自动跳转到相应位置
+        history.pushState(value,"进度"+value,"#"+value);
+        document.title = "进度"+value;
+
+    }
+    // 当后退时触发
+    window.onpopstate = function (event){
+        console.log("event.state:",event.state);
+        if (event.state != null){
+            document.querySelector("progress").value = event.state;
+            document.title = "进度"+event.state;
+        }
+        else {
+            document.title = "document";
+        }
+        
+    }
+
+</script>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style lang="">
+        div{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        倒计时还有90分钟00秒
+    -->
+    <!--<div style="width: 300px" id=""></div>-->
+</body>
+</html>
+<script>
+    // 创建div标签 divEle
+    var divEle = document.createElement("div");
+    // 将divEle添加到body当中
+    document.body.appendChild(divEle);
+    // 向div中插入标签内容
+    divEle.innerHTML = "倒计时还有90分钟00秒";
+    // 通过js 操作标签的行内样式或其他属性
+    divEle.id = "testDiv";
+    divEle.style.width = "300px";
+    divEle.style.margin = "20px auto";
+
+    // 每隔1000毫秒执行一次作为参数传入的函数
+    // setInterval(function(){
+
+    // },1000);
+    var time = 90*60;
+    function daoJishi(){
+        time--;
+        var minute = Math.floor(time/60);
+        var second = time%60;
+        minute = minute<10?"0"+minute:minute;
+        second = second<10?"0"+second:second;
+        // divEle.innerHTML = "倒计时还有90分钟00秒";
+        divEle.innerHTML = "倒计时还有"+ minute + "分钟"+ second + "秒"
+
+    }
+    setInterval(daoJishi,1000);
+
+// 1分50 110/60  - 1
+// 121 60  --> 2  1
+</script>
+
+<script>
+    /**
+    * setInterval(function,毫秒数)
+    * 每隔多少毫秒数执行一次方法function
+    * setTimeout(function,毫秒数)
+    * 延迟多少毫秒数执行一次方法function
+    **/ 
+    console.log(Date.now());
+    setTimeout(function(){
+        console.log(Date.now());
+        console.log("aaaa");
+    },1000);
+
+    //在自己的方法中调用本身，（递归的思想）
+    // 在这里使用setTimeout 完成setInterval的功能
+    function yanchi(){
+        console.log("yanchi");
+
+        setTimeout(yanchi,1000);
+    }
+    setTimeout(yanchi,1000);
+</script>
+
+<!--
+    作业1：使用setTimeout写一个倒计时
+    作业2：时钟
+    作业3：雪花
+-->
+
+<script>
+    // 无限循环（死循环）
+    // function method(){
+    //     console.log("sssss");
+    //     method();
+    // }
+    // method();
+</script>

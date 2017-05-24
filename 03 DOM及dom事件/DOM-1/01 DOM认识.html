@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style lang="">
+        body a{
+
+        }
+        #test{
+
+        }
+    </style>
+</head>
+<body>
+    <a href="">My link</a>
+    <a href="">My LInk2</a>
+    <h1 id="test" class="testClass">My header</h1>
+</body>
+</html>
+<!--通过js来操作HTML标签和css样式-->
+<!--Doucment object model 文档对象模型-->
+<!--DOM以树状结构来表示html文档-->
+<!--每个被载入浏览器的文档都会生成一个document对象
+用来表示这个文档的树状结构
+document对象包含了文档中所有的标签结构
+-->
+<!--
+    节点:
+    元素节点（标签节点）(html元素)
+    文本节点（标签内容）
+    属性节点（标签属性）
+
+-->
+<script>
+    // DOM树状结构的顶层
+    // 文档对象
+    console.log(document);
+    // html 根标签
+    console.log(document.documentElement);
+    // body
+    console.log(document.body);
+    // head
+    console.log(document.head);
+
+
+    // 根据id来获取标签元素
+    var  hEle = document.getElementById("test");
+    console.log(hEle);
+    // 根据class来获取（定位）元素 结果是集合
+    var test = document.getElementsByClassName("testClass");
+    console.log(test);
+    var hEle = test[0];
+    // 根据标签名字获取标签 结果是集合
+    var test = document.getElementsByTagName("a")[0];
+    console.log(test);
+
+    // 根据选择器来获取标签（跟css中使用的选择器一致）
+    // querySelector 得到符合选择器的第一个结果
+    var result = document.querySelector("body a");
+    // result = document.querySelector("#test");
+    // result = document.querySelector(".testClass");
+
+
+    console.log("result ------",result);
+
+
+    // querySelectorAll 获取的是所有的符合选择器的节点
+    var result2 = document.querySelectorAll('body a');
+    console.log("result2----",result2);
+    var two = result2[1];
+    console.log(two);
+
+
+</script>
+
+<!--原生的js
+    jquery 对原生js的封装
+-->

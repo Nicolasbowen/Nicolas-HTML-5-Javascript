@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="animate.css">
+    <style lang="">
+        html,body{
+            height: 100%;
+        }
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(circle,#444,black);
+            
+            color: white;
+        }
+        main{
+            text-align: center;
+        }
+        #char{
+            font-size: 200px;
+            color: greenyellow;
+        }
+        #tishi{
+            
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <div id="char">K</div>
+        <div id="tishi">请键入显示字母</div>
+        <div id="result"></div>
+    </main>
+</body>
+</html>
+<script src="index.js">
+    
+</script>
+
+<script>
+    console.log(String.fromCodePoint(65));//A
+    console.log("AB".charCodeAt(0));//65
+
+</script>

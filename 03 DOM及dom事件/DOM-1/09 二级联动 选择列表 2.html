@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">请选择省份</label>
+    <select name="" id="province">
+        <!--<option value="1">河南</option>
+        <option value="2">山东</option>-->
+    </select>
+
+    <label for="">请选择城市</label>
+    <select name="" id="city">
+        <!--<option value="">郑州</option>
+        <option value="">南阳</option>-->
+    </select>
+</body>
+</html>
+<script>
+    // 整理数据
+    // 数组 对象
+    // 河南 ---- > 南阳 ，郑州，。。
+    // 河北-----》 石家庄 邯郸
+    // 。。
+    var data = [
+        {
+            name:"河南",
+            city:['南阳','郑州',"信阳",'安阳',"洛阳"]
+        },
+        {
+            name:"河北",
+            city:["石家庄","邯郸"]
+        },
+        {
+            name:"山西",
+            city:["太原","临汾","大同"]
+        }
+    ]
+
+    console.log(data);
+
+    // 给省份的选择列表添加内容
+    // 获取到省份的选择列表
+    var province = document.getElementById("province");
+    // 根据数据长度创建对应数量的选项
+    for (let i = 0;i < data.length;i ++){
+        // 创建option标签
+        let option = document.createElement("option");
+        // 将option（省份）条件 province标签内
+        province.appendChild(option);
+        // 设置内容 获取data数组中的每个对象，
+        // 再获取对象中name这个key对应value
+        option.innerHTML = data[i].name; 
+        // option.dataset.tag = i;
+        option.value = i;
+
+    }
+
+    // 获取城市选择列表标签
+    var city = document.getElementById("city");
+    // 获取河南这个省份对应的城市数据
+    // 获取data中的第一个元素对象，在对象中获取city这个key值对应的value
+    var cityHN = data[0].city;
+    for(let i = 0;i < cityHN.length;i ++){
+        let option = document.createElement("option");
+        city.appendChild(option);
+        option.innerHTML = cityHN[i];
+    }
+
+    // 实现联动
+    province.onclick = function(){
+        // console.log("click");
+    }
+    // 当标签内容改变时，触发方法
+    province.onchange = function(event){
+        // console.log("change");
+        // city select
+        // 移除city （select）中原有的所有的option
+        for (var i = 0;i < city.children.length;i ++){
+            city.removeChild(city.children[i]);
+            i--;
+        }
+        console.log(event.explicitOriginalTarget);
+        console.log(this);
+        // 获取被点击的option （使select发生change事件的原始目标元素）
+        // var selectedOption = event.explicitOriginalTarget; 
+        // 选择器的选项在列表中的索引
+        // var index = selectedOption.dataset.tag;
+        
+        // event.target--->select -->value --> 从被选择的option的value来值
+        // select的value属性值，跟select当中被选中的option的value值保持一致
+        var index = event.target.value;
+        console.log("index-----",index);
+        var dataCity = data[index].city;
+        console.log(dataCity);
+        for (let i = 0;i < dataCity.length;i ++){
+            let option = document.createElement('option');
+            city.appendChild(option);
+            option.innerHTML = dataCity[i];
+        }
+
+
+    }
+
+
+</script>

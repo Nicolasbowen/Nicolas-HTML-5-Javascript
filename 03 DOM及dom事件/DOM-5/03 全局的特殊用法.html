@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+    <style>
+        
+        a{
+            font-size: 40px;
+            color: yellow;
+        }
+        img{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.baidu.com" name="链接到百度">aaa</a>
+    <a href="#">bbb</a>
+    <a>ccc</a>
+    <img src="keys.png" alt="">
+    <img src="aa.gif" alt="">
+</body>
+</html>
+<script>
+    // links属性返回所有含有href属性的标签（a,area）
+    var links = document.links;
+    console.log(links);
+
+    // 获取文档中所有的锚点元素
+    var anchors = document.anchors;
+    console.log(anchors);
+
+    // 获取当前中所有的img标签
+    var imgs = document.images
+    console.log(imgs);
+
+    // 获取当前页面中的所有form表单
+    var form = document.forms;
+    
+    var style = document.styleSheets;
+    console.log(style);
+    // 获取某个样式表对象
+    var aStyleSheet = style[1];
+    console.log(aStyleSheet);
+
+    // 获取样式表中的规则集（cssRule）
+
+    var cssRule = aStyleSheet.cssRules;
+
+    console.log(cssRule);
+
+    // 获取规则集中的样式文本
+    var cssText = cssRule[0].cssText;
+    console.log(cssText);
+ 
+    // 样式表对象中插入规则集
+    // 第一个参数：表示插入的规则集 第二个参数表示插入的位置
+    // 当 样式重复时，谁在下面谁生效
+    //  aStyleSheet.insertRule("a { font-size: 60px; color: blue; }",1)
+
+    // 删除样式表对象中某个位置上的规则集
+     aStyleSheet.deleteRule(0);
+    
+</script>
+<!--
+    js当中改变样式  
+    1.操作行内样式style对象
+    2.操作非行内样式  通过删除增加样式表对象中的规则集来实现
+-->

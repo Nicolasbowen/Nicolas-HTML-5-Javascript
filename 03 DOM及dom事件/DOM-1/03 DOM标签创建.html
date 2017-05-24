@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="baishuang">
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <!--ul>li-->
+        <ol>
+            <li>000</li>
+            <li>11111</li>
+        </ol>
+
+        <p id="p1">ppppp</p>
+        <p id="p2">ppppp</p>
+        <p id="p3">ppppp</p>
+    </body>
+</html>
+<script>
+    var p = document.createElement("p");
+    document.body.appendChild(p);
+    // 创建文本节点
+    // var content = document.createTextNode("ddddd");
+    // // 将文本节点加入到元素当中
+    // p.appendChild(content);
+    // p.innerHTML = "ddddddd"
+</script>
+<script>
+    var ul = document.createElement("ul");
+    document.body.appendChild(ul);
+    for (var i = 0;i < 10;i ++){
+        var li = document.createElement("li");
+        ul.appendChild(li)
+        li.innerHTML = "lilili"+i;
+    }
+
+</script>
+
+<script>
+    // 删除子节点
+    // 删除自己及自己的节点从父元素中移除
+    // ul.remove();
+    // 删除子元素
+    // 获取标签的所有的子字节（标签节点）
+    console.log(ul.children);
+    // 获取集合当中的第一个元素
+    var firstLi = ul.children[0];
+    // 删除元素中的子元素
+    ul.removeChild(firstLi);
+</script>
+
+<script>
+    // 插入元素
+    // var newli = document.createElement("li")
+    // newli.innerHTML = "newLI"
+    // 在元素内部插入一个子元素
+    // 第一个参数新的元素 第二个参数表示插入的位置，哪个子元素的前面
+    // ul.insertBefore(newli,ul.children[0]);
+
+    // 如果要插入的新的元素已经存在，那么就先删除执行插入的操作
+    ul.insertBefore(ul.children[8],ul.children[0]);
+</script>
+
+<script>
+    console.log(ul.parentNode);
+    console.log(ul.children);
+    console.log(ul.childNodes);
+
+    var ol = document.querySelector('ol');
+    // 得到标签的子节点元素（不包含文本节点）
+    console.log(ol.children);
+    // 得到标签的子节点（包含文本节点的）
+    console.log(ol.childNodes);
+
+    console.log(ol.childNodes.length);
+
+</script>
+
+<script>
+    var p2 = document.querySelector('#p2');
+    // 上一个相邻同胞元素
+    var p1 = p2.previousElementSibling;
+    // 
+    var p3 = p2.nextElementSibling;
+    console.log(p1,p3);
+</script>

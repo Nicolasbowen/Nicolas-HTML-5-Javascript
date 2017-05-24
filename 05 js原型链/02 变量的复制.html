@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 基本类型数据（栈内存）
+    // 基本的复制，复制是值的本身
+    var a = 34;
+    var b = a;
+    console.log(b);
+    a = 100;
+    console.log(b);
+
+    // 引用类型 （堆内存）
+    // 复制的变量的地址
+    var test1 = {name:"xiaomei",age:"18"};
+    var test2 = test1;
+    console.log(test2);
+
+    test1.name = "newnewnew"
+    console.log(test2);
+</script>
+
+<script>
+    function method1(a){
+        console.log(a);
+        a = 45;
+        console.log(a);
+    }
+    var b = 23;
+    method1(b);
+
+    console.log(b);
+
+
+    function method2(aa){
+        // 参数aa接受到时bb这个变量所保存的内容
+        // bb这个变量保存的不是对象，而是这个对象的指针地址
+        aa.name = "xiao3333333";
+    }
+
+    var bb = {name:"xioer"}
+    method2(bb);
+
+    console.log(bb);
+
+
+</script>

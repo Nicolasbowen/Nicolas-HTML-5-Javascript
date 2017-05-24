@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        #outer {
+            width: 150px;
+            margin: 20px auto;
+        }
+
+        #tip {
+            width: 300px;
+            background-color: goldenrod;
+            border: 1px solid gray;
+            padding: 5px;
+            /*display: none;*/
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <input type="checkbox">
+        <label for="">两周内自动登录</label>
+        <div id="tip" style="display: none">为了您的信息安全，请不要在网吧或公用电脑上使用此功能！</div>
+    </div>
+</body>
+
+</html>
+<script>
+    var label = document.querySelector("#outer label");
+    var tip = document.getElementById("tip");
+    label.onmouseover = function () {
+        tip.style.display = "block";
+    }
+    label.onmouseout = function () {
+        tip.style.display = "none";
+    }
+
+</script>

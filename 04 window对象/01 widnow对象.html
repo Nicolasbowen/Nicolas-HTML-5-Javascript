@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        DOM document  object modal 文档对象模型
+        BOM brower object modal 浏览器对象模型
+        window对象是所有对象的一个父对象
+    -->
+</body>
+</html>
+<script>
+    // js中任何一个全局函数或者变量都是window的属性
+    function test(){
+        console.log(test);
+    }
+    test();
+    window.test();
+
+    a = 45;
+    window.a = 45;
+
+    alert("aaaa");
+    window.alert("bbb")
+
+    var result = window.prompt("请输入数字",100);
+    if (result == null){
+        console.log("点了取消")
+    }
+    else {
+        console.log("点了确定，输入框中的值为",result);
+    }
+
+    var result = window.confirm("请输入正确的url地址");
+    if (result == true){
+        console.log("用户点了确定")
+    }
+    else{
+        console.log("用户点击了取消")
+    }
+    // 打开一个新的窗口（子窗口）
+    // 参数1：子窗口的一个链接地址 参数2：窗口的名称 参数3：窗口属性
+    window.open("https://www.baidu.com","baidu","width=300,height=400")
+
+
+
+</script>
+
+<a href="https://tmall.com">进入天猫</a>
+
+<script>
+    var url = document.querySelector("a").href;
+    console.log(url);
+    console.log(window.encodeURIComponent(url));
+    // URI 统一资源定位符 URL
+
+    console.log(window.decodeURIComponent(url));
+</script>

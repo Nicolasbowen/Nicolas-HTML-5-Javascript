@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="red.css">
+    <!--<link rel="stylesheet" href="yellow.css">
+    <link rel="stylesheet" href="red.css">
+    <link rel="stylesheet" href="">-->
+    <style lang="">
+        html,
+        body {
+            height: 100%;
+        }
+        
+        body {
+            margin: 0;
+        }
+        
+        nav {
+            padding: 10px;
+            background-color: black;
+        }
+        
+        nav span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+        }
+        
+        span:nth-of-type(1) {
+            background-color: red;
+        }
+        
+        span:nth-of-type(2) {
+            background-color: yellow;
+        }
+        
+        span:nth-of-type(3) {
+            background-color: blue;
+        }
+        
+        main {
+            height: 700px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <span data-color="red"></span>
+        <span data-color="yellow"></span>
+        <span data-color="blue"></span>
+    </nav>
+    <main>
+
+    </main>
+</body>
+
+</html>
+<script>
+    var btns = document.querySelectorAll("nav span");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function (event) {
+            // 表示当前被点击的元素
+            // btns[i] -->let
+            // event.target -->var let 
+            // this -->var let
+
+            var color = event.target.dataset.color;
+            // 创建link标签，加入到head当中
+            var link = document.createElement("link");
+            document.head.appendChild(link);
+            // rel属性 表示关系 stylesheet样式表 href 
+            // <link rel="stylesheet" href="red.css">
+            // 设置link的标签属性
+            link.rel = "stylesheet";
+            link.href = color + ".css";
+        }
+    }
+
+</script>

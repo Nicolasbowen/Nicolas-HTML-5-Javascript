@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style lang="">
+    /*span:nth-last-of-type(2)*/
+</style>
+<body>
+    <button id="hide">点击隐藏</button>
+    <button id="show">点击显示</button>
+    <main>
+        <span>span0001</span>
+        <span>span0002</span>
+        <span>span0003</span>
+        <span>span0004</span>
+        <span>span0005</span>
+        <span>span0005</span>
+        <span>span0005</span>
+        <span>span0005</span>
+    </main>
+</body>
+</html>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+
+    // $("#hide").click(function(){
+    //     $("main span:last").hide("slow",function(){
+    //         $(this).prev().hide("slow",function(){
+    //             $(this).prev().hide("slow",function(){
+    //                 $(this).prev().hide("slow",function(){
+    //                     $(this).prev().hide("slow",function(){
+
+    //                     })
+    //                 })
+    //             })
+    //         })
+    //     })
+    // })
+    function method(){
+        console.log(this)
+        // caller执行者（对象） callee 被执行者（方法）
+        // arguments.callee 指向的是方法本身
+        console.log(arguments);
+    }
+    method();
+
+    $("#hide").click(function(){
+        $("main span:last").hide("slow",function(){
+            console.log(arguments);
+            console.log(arguments.callee);
+            // 当动画结束后，的回调函数为函数本身
+            $(this).prev().hide("slow",arguments.callee);
+        })
+    })
+
+    $("#show").click(function(){
+        $("main span").show("slow");
+    })
+</script>

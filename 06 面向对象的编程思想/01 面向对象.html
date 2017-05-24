@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // js 万事万物都可以叫做对象
+    // js 是一门面向对象的编程语言
+    // java ios 面向对象 c面向过程
+    // 不管是面向过程还是面向对象 都是一种编程思维（思想）
+    // 编程思想：解决实际问题的思维（思考方式）
+
+    // 把大象放入冰箱
+    // 面向过程
+    var box;
+    var door;
+    function open(){
+        door = true;
+    }
+    open();
+    function put(){
+        var daxiang = "大象";
+        box = daxiang;
+    }
+    put();
+    function close(){
+        door = false;
+    }
+    close();
+
+    // 面向对象
+    function Box(){
+        this.door = null;
+        this.box = null;
+    }
+    Box.protorype.open = function(){
+        this.door = true;
+        // 返回的是开了门的冰箱对象
+        return this;
+    }
+    Box.prototype.put = function(){
+        var daxiang = "大象";
+        this.box = daxiang;
+        // 返回的是装了大象的冰箱对象
+        return this;
+    }
+    Box.prototype.close = function(){
+        this.door = false;
+        // 返回的是关了门的冰箱对象
+        return this;
+    }
+
+    var box = new Box();  
+    // 链式调用 （方法的返回值还是对象本身）
+    box.open().put().close();
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function Animal(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Animal.prototype.run = function(){
+        console.log("run.....")
+    }
+
+    function Dog(name,age,color){
+        Animal.call(this,name,age);
+        this.color = color;
+    }
+    // function temp(){}
+    // temp.prototype = Animal.prototype;
+    // Dog.prototype = new temp()
+    //Dog.prototype.constructor = Dog;
+
+    // 实现原型对象继承的方式二：
+    // 创建一个新的对象，这个对象的原型对象是Animal的原型对象
+    // 使Dog的原型对象为这个新对象
+    Dog.prototype = Object.create(Animal.prototype);
+    Dog.prototype.constructor = Dog;
+
+    var aDog = new Dog("xiaohei",2,"black");
+    console.log(aDog);
+
+
+</script>

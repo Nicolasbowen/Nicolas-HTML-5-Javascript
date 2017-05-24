@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        body>div {
+            width: 200px;
+            height: 200px;
+            margin: 30px auto;
+            background-color: red;
+        }
+
+        .mouseover {
+            border: 1px solid red;
+            background-color: black;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+</body>
+
+</html>
+<script>
+    var box = document.querySelector("#box");
+    // var box = document.getElementById("box")
+
+    // 当鼠标放置在目标元素上时触发方法
+    box.onmouseover = function (event) {
+        console.log("mouse over");
+        // this.className = "mouseover";
+        event.target.className = "mouseover";
+    }
+    // 当鼠标从目标元素上移开时触发
+    box.onmouseout = function (event) {
+        console.log("mouse out");
+        event.target.className = "";
+    }
+    // 当鼠标在目标元素上移动时触发
+    box.onmousemove = function () {
+        console.log("mouse move");
+    }
+    // 当鼠标在目标元素内按下时触发
+    box.onmousedown = function () {
+        console.log("mouse down")
+    }
+    // 当鼠标在目标元素内按下松开后触发 
+    box.onmouseup = function () {
+        console.log("mouse up");
+    }
+    // 双击事件double
+    box.ondblclick = function () {
+        console.log("dblclick");
+    }
+    // 当鼠标滚轮滚动时触发
+    window.onwheel = function () {
+        console.log("wheel")
+
+    }
+
+</script>

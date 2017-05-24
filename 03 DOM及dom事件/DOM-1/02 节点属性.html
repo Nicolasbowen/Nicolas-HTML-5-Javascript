@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        input{
+            height: 200px;
+            border: 1px solid rebeccapurple;
+        }
+    </style>
+    
+</head>
+<body>
+    <form action="">
+        <input type="text" style="width: 100px">
+        <input type="text" name="password">
+    </form>
+</body>
+</html>
+<!--
+    标签的属性
+-->
+<!--对行内属性操作的方式一：-->
+
+<script>
+    var input = document.querySelector('input:nth-of-type(1)');
+    // 添加属性
+    input.id = "input1"
+    // 更改属性值
+    input.type = "submit";
+    // 获取标签属性
+    console.log(input.type);
+
+    console.log(input.style);
+    input.style.width = "222"
+    // input.style.paddingLeft = "23px"
+</script>
+
+<!--对标签行内属性的操作方式二：-->
+<!--Attribute 属性的意思  set设置 remove移除-->
+<script>
+    var input2 = document.querySelectorAll("input")[1];
+    // 参数1：需要设置的行内属性 参数2:属性的设置值
+    input2.setAttribute("type","password");
+    // 删除行内属性
+    input2.removeAttribute("name");
+    // 判断是否含有
+    var has = input2.hasAttribute("id");
+    console.log(has)
+
+    // 获取标签所有的行内属性，结果为集合
+    console.log(input2.attributes);
+</script>
+
+<!--获取非行内样式-->
+<!--全局方法getComputedStyle-->
+<!--window. 可以省略-->
+<!--window.getComputedStyle()-->
+<script>
+    var style = window.getComputedStyle(input2); 
+    
+    console.log(style);
+
+    console.log(style["height"]);
+    // 不能使用复合属性样式
+    // console.log(style["border"]);
+    console.log(style["border-bottom-color"]);
+</script>
+<!--<div id="" class="aaa bbb"></div>-->
+<script>
+    // 在给标签设置类名时，使用ele.className = "";
+    var p = document.createElement("p");
+    document.body.appendChild(p);
+    // 不存在兼容性问题
+    p.className = "testP test333";
+    // 存在兼容性问题
+    // p.setAttribute("class","aa");
+    // p.setAttribute("className","bb");
+
+    // p.className = "test333";
+    //classList只读属性（只能获取，不能设置）， 
+    // 获取p元素的类名列表
+    console.log(p.classList);
+    // p.classList = "ddd" 错误  只能获取，不能设置
+</script>
+

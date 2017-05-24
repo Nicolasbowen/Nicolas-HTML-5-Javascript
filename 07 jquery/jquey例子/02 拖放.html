@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        main{
+            height: 300px;
+            border: 1px solid red;
+        }
+        img{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <main></main>
+</body>
+</html>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $("main").on({
+        dragenter:function(event){
+            console.log("dragenter")
+        //    event.preventDefault();
+
+        },
+        dragover:function(event){
+            console.log("drag over")
+            event.preventDefault();
+            // console.log(event);
+            /**
+            * dropEffect
+            * 可以指定被拖放元素的放置行为
+            * move 可移动到放置目标处
+            * copy 可复制到放置目标处
+            * none 不可放置在目标处
+            * link 放置目标会打开拖动元素（拖动元素必须是一个链接）
+            */
+            event.originalEvent.dataTransfer.dropEffect = "copy";
+        },
+        dragleave:function(){
+            console.log("drag leave")
+            // event.preventDefault();
+        },
+        drop:function(event){
+            console.log("drop")
+            event.preventDefault();
+            event.stopPropagation();
+            console.log(event);
+
+            console.log(event.originalEvent.dataTransfer);
+            // 获取拖动文件列表（容器）
+            var files = event.originalEvent.dataTransfer.files;
+            console.log(files);
+            // 获取拖动文件列表中的第一个文件对象
+            var file = files[0];
+            console.log(file);
+            // 获取文件的类型
+            var filetype = file.type;
+            // 判断文件类型是否以image作为开头，如果是，文件就是一个图片
+            if(filetype.startsWith("image")){
+                // 图片
+                // 根据文件对象，创建文件路径
+                var imgSrc = URL.createObjectURL(file)
+                // 删除main中原有的内容，再加入新的内容
+                $("main").empty();
+                // 创建img标签，加入到main标签中
+                $("main").append(`<img src=${imgSrc}></img>`)
+            }
+            // $("<img>")
+        }
+    })
+</script>

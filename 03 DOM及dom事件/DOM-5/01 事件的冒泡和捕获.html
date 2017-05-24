@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        #outer{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        #inner{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div onclick="alert('11')">divdiv</div>
+
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+</body>
+</html>
+<script>
+    var div = document.querySelector("div");
+    div.onclick = function(){
+        console.log("onclick");
+    }
+    // 相当于标签标签对象添加属性，一个对象的onclick属性只能保存一个值
+    div.onclick = function(){
+        console.log("onclick2");
+    }
+    /**
+     * addEventListener()
+     * 给元素添加事件监听，当事件发生时，触发方法
+     * 参数1：事件类型 参数2：事件函数 
+     * 参数3：boolean指定事件再冒泡阶段执行还是在捕获阶段执行
+     * 默认false :表示在冒泡阶段执行 true表示在捕获阶段执行
+     */
+    div.addEventListener("click",function(){
+        console.log("click1");
+    },false)
+    div.addEventListener("click",function(){
+        console.log("click2");
+    },false)
+
+</script>
+
+<script>
+    var inner = document.getElementById("inner");
+
+    inner.addEventListener('click',function(event){
+        console.log("inner 捕获阶段执行");
+        // event.stopPropagation();
+        // 立即停止事件流，不再继续执行
+        event.stopImmediatePropagation();
+    },true);
+    inner.addEventListener('click',function(event){
+        console.log("inner 冒泡阶段执行");
+        // 阻止当前事件的冒泡
+        // 禁止事件在不同元素之间进行传递
+        // event.stopPropagation();
+    },false);
+    
+
+    var outer = document.getElementById("outer");
+    outer.addEventListener("click",function(){
+        console.log("outer 冒泡阶段执行")
+    },false)
+    outer.addEventListener("click",function(){
+        console.log("outer  捕获阶段执行")
+    },true)
+
+
+    document.body.addEventListener("click",function(){
+        console.log("body 冒泡阶段执行")
+    },false)
+    document.body.addEventListener("click",function(){
+        console.log("body  捕获阶段执行")
+    },true)
+
+</script>

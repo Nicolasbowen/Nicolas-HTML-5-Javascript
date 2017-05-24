@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 函数
+    // 一段代码块  这段代码块需要多次重复的使用
+    // 使用函数解决代码重复的问题
+    var a = 100;
+    var b = 10;
+    var c = a + b;
+    console.log(c);
+
+    var a = 100;
+    var b = 10;
+    var c = a + b;
+    console.log(c);
+
+    var a = 100;
+    var b = 10;
+    var c = a + b;
+    console.log(c);
+
+
+    /*
+     声明函数的语法格式：
+     function 函数名(函数的参数){
+         函数的函数体
+     }
+    */
+    // 声明一个函数 （方法）
+    // method 函数的名字 
+    function method() {
+        // 函数体 ： 一段代码块
+        var a = 100;
+        var b = 10;
+        var c = a + b;
+        console.log(c);
+    }
+    // 函数的函数体不会被系统自动的执行
+    // 如果需要执行函数内的代码块，那么就需要调用函数，
+    // 使函数被触发，从而执行函数体内的代码块
+
+    // 调用(执行，触发)函数 语法格式：函数名()
+
+    method();
+    method();
+    method();
+    method();
+
+// 当某些功能块需要多次使用时，我们就可以封装一个函数，
+// 用来实现这个功能
+// 不会有大量重复性代码，代码结构也更加清晰
+
+</script>
+
+<script>
+     var a = 10;
+     var b = 30;
+     var c = a + b;
+     console.log(c);
+    //  
+     var a = 20;
+     var b = 40;
+     var c = a + b;
+     console.log(c);
+
+var abc = 90;
+
+     //封装函数：实现功能：两个变量值相加，并输出结果  
+    //  函数的参数   用来接受函数外部传入内部的值
+    // 有参函数
+    // aa,bb 是一个变量（不用声明）参数变量，
+    // 可以被当做普通的变量来使用
+     function method2(test1,test2) {
+         var c = test1 + test2;
+         console.log(c);
+         return c;
+     }
+     var a = 10;
+     var b = 30;
+    //  调用有参的函数时，需要给函数传入参数
+    //  method2(a,b);
+    method2(10,30);
+     var a2 = 110;
+     var b2 = 300;
+     method2(a2,b2);
+     method2(100,23);
+
+</script>
+
+<script>
+    // 参数：接受函数外部传入函数内部的值
+    // 将值从函数外部传入到了函数内部
+    // 有返回值的函数：方法外部使用方法内部的值
+    function method3(a){
+        
+        // 函数外部的值是可以拿到函数内部来使用
+        // console.log(test);
+        // function作用域
+        // 函数内部的变量不能否拿到函数外部来使用
+        var sum = a*2;
+        // 返回值  方法被执行完毕之后，返回的值（返回到调用函数的地方）
+        // 返回的不是变量 是一个值 
+        return sum;
+    }
+    // 有返回值的方法，调用方法后，可以得到一个返回值，
+    // 声明一个变量aa来接受方法method3的返回值
+    var aa = method3(30);
+
+    // console.log(sum);
+
+    console.log(aa);
+    // console.log(sum);
+</script>

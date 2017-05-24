@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>li0001</li>
+        <li>li0002</li>
+        <li>li0003</li>
+        <li>li0004</li>
+    </ul>
+
+    <a href="#">aaa</a>
+</body>
+</html>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    //.append() => appendChild()
+    // 向jquery对象的末尾加入一个新元素
+    // 参数为html字符串
+    $('ul').append("<li>我是li</li>")
+
+    var li2 = document.createElement("li");
+    li2.innerHTML = "test";
+    // 参数为标签元素对象
+    $("ul").append(li2);
+
+    // 参数为jquery对象
+    $("ul").append($("a"));
+
+    // prepend()
+    // 插入到元素内部的前端
+    $("ul").prepend("<li>qianduan</li>")
+    
+    // appendTo()
+    // 将元素添加到另一个元素内部，作为他的子元素
+    var test = $("<strong>aaaaa</strong>")
+    console.log(test);
+    // test.appendTo("body");
+    test.appendTo($("body"));
+
+</script>
+<script>
+    // after()
+    // 在元素的后边加上一个同胞元素
+    $("ul").after("<ol><li>ddddd</li></ol>")
+
+    // before()
+    // 在元素的前边加上一个同胞元素
+    $('ul').before("<ol><li>ol当中的内容</li></ol>")
+</script>
+
+
+<div class="container">
+  <div class="hello">Hello<a href="#">aaa</a></div>
+  <div class="goodbye">Goodbye</div>
+</div>
+
+
+<script>
+    // 删除标签内容及表亲本身
+    // $(".hello").remove();
+    // 删除标签内的所有内容
+    $(".hello").empty();
+</script>

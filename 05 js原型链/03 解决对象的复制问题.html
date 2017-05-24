@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    
+    // var obj = new Object();
+    // obj.name = "xiaomei";
+    // obj.age = 23;
+
+    // // obj2 = obj1;
+
+    // var obj2 = new Object();
+    // obj2.name = "xiaomei";
+    // obj2.age = 23;
+
+    // 工厂函数  工厂模式
+    function createObj(name,age){
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        obj.run = function(){
+            return this.name + this.age;
+        }
+        obj.skill = function(){
+            console.log("dddd");
+        }
+        return obj;
+    }
+    var obj1 = createObj("kitty",10);
+    console.log(obj1.run());
+
+    var obj2 = createObj("kitty222",100);
+    console.log(obj2.run());
+
+    console.log(obj1,obj2);
+
+
+
+</script>
+
+<script>
+    // 使用构造函数的方式 
+    // （与new结合使用new负责创建对象，构造函数负责初始化，构造函数中必须含有this）
+
+    function Box(name,age){
+        // 对new出来对象进行初始化；
+        // 属性的设置
+        // new出来的 对象 this
+        this.name = name;
+        this.age = age;
+        this.fuse = "黄色"
+    }
+    // 通过构造函数创建
+    var aa =  new Box("luccy",20);
+    console.log(aa);
+
+    var box2 = new Box("aaa",45);
+    console.log(box2);
+
+
+</script>

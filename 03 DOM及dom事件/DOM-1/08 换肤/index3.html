@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="red.css">
+    <link rel="stylesheet" href="yellow.css">
+    <link rel="stylesheet" href="blue.css">
+
+
+    <style lang="">
+        html,
+        body {
+            height: 100%;
+        }
+
+
+        body {
+            margin: 0;
+        }
+
+
+        nav {
+            padding: 10px;
+            background-color: black;
+        }
+
+
+        nav span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+        }
+
+
+        span:nth-of-type(1) {
+            background-color: red;
+        }
+
+
+        span:nth-of-type(2) {
+            background-color: yellow;
+        }
+
+
+        span:nth-of-type(3) {
+            background-color: blue;
+        }
+
+
+        main {
+            height: 700px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <span data-color="1"></span>
+        <span data-color="2"></span>
+        <span data-color="3"></span>
+    </nav>
+    <main>
+
+    </main>
+</body>
+
+</html>
+<script>
+    // var btns = document.querySelectorAll("nav span");
+    // var links = document.styleSheets;     
+    // 默认 使第一个样式表可用，其他不可用
+    // enabled(0);
+
+    // for (var i = 0; i < btns.length; i++) {
+    //     btns[i].onclick = function (event) {
+    //         var color = event.target.dataset.color;
+    //         enabled(color-1)
+    //     }
+    // }
+
+
+    styleEnabled(0);
+
+    var nav = document.querySelector("nav");
+    // 当点击了nav中的某个span，nav所绑定的事件函数被触发了，
+    // 这就是事件的传播（传递）
+    nav.onclick = function(event){
+        console.log(event);
+        // 获取被点击的元素的节点名字
+        console.log(event.target.nodeName);
+        if (event.target.nodeName.toLowerCase() == 'span'){
+            var colorIndex = event.target.dataset.color;
+            styleEnabled(colorIndex-1);
+        }
+        
+    }
+
+
+
+    // 封装一个方法 
+    // 功能：根据参数index，使样式表集合中的第index个样式表可用，其他不可用
+    // index 从0开始
+    function styleEnabled(index) {
+        // 第index个样式表 ->false
+        // 其余 true
+        var links = document.styleSheets;
+        for (var j = 0; j < links.length - 1; j++) {
+            links[j].disabled = !(index == j);
+        }
+    }
+
+</script>
+
+<!--
+
+    事件委托
+    http://www.cnblogs.com/dearxinli/p/3824700.html 
+-->

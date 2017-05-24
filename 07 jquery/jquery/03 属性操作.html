@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+</body>
+</html>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    // .attr() =>setAttribute() getAttribute()
+    // 设置或获取属性
+    $("input[type='text']").attr("name","username");
+    $("input:text").attr("name","username22");
+
+    console.log($("input:text").attr("name"));
+
+    // 移除属性
+    $('input:text').removeAttr("name");
+
+</script>
+
+<script>
+    // .data() => 自定义属性 dataset
+
+    $("input:text").attr("data-age","18");
+    console.log($("input:text").attr("data-age"));
+
+    // 获取
+    console.log($('input:text').data())
+    // 可以设置，但是并不显示在标签上，由data对象来保存值
+    $("input:text").data().key = "key22";
+
+    console.log($('input:text').data())
+    console.log($("input:text").data()["key"])
+    console.log($("input:text").data().key);
+
+    $("input:text").removeData("key");
+    console.log($('input:text').data())
+
+    // 使用removeData删除通过data添加的数据
+    $("input:text").removeData("age");
+    console.log($('input:text').data())
+
+
+</script>
+<input type="checkbox">
+<!--<input type="checkbox" checked>
+<input type="checkbox" checked="checked">-->
+
+<script>
+    // 布尔属性
+    // prop()
+    // attr 操作属性
+    $('input:checkbox').attr("checked","checked");
+    $("input:checkbox").removeAttr("checked");
+
+    // prop 操作属性值
+    // 设置
+    $("input:checkbox").prop("checked","true");
+    // 取消
+    $("input:checkbox").prop("checked",false)
+</script>
+<script>
+    // .val() => value
+    // 设置value值
+    $("input:text").val("ddddddddddddd");
+    // 获取value值
+    console.log($("input:text").val())
+</script>

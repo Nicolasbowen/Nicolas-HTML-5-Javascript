@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        dl{
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 20px auto;
+            width: 150px;
+        }
+        dl dt {
+            border-bottom: 1px solid black;
+            padding:10px;
+        }
+        dl dd{
+            margin-left: 0;
+            padding-left: 10px;
+        }
+        dl dd p{
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <!--define list 定义列表-->
+    <!--<dl>
+        define title
+        <dt>标题1</dt>
+        <dd>内容</dd>
+        <dd>内容</dd>
+        <dt>标题1</dt>
+        <dd>内容</dd>
+        <dd>内容</dd>
+    </dl>-->
+    <dl>
+        <dt>
+            <input type="checkbox"><label for="">全选</label>
+            <a href="javascript:;">反选</a> 
+        </dt>
+        <dd>
+            <!--(p>(input[type="checkbox"]+label[for=""]{选项$}))*10-->
+
+            <p><input type="checkbox"><label for="">选项1</label></p>
+            <p><input type="checkbox"><label for="">选项2</label></p>
+            <p><input type="checkbox"><label for="">选项3</label></p>
+            <p><input type="checkbox"><label for="">选项4</label></p>
+            <p><input type="checkbox"><label for="">选项5</label></p>
+            <p><input type="checkbox"><label for="">选项6</label></p>
+            <p><input type="checkbox"><label for="">选项7</label></p>
+            <p><input type="checkbox"><label for="">选项8</label></p>
+            <p><input type="checkbox"><label for="">选项9</label></p>
+            <p><input type="checkbox"><label for="">选项10</label></p>
+            <p><input type="checkbox"><label for="">选项11</label></p>
+        </dd>
+    </dl>
+</body>
+</html>
+
+<script>
+    // 1.点击全选，使下侧内容全部选中
+    var inputTitle = document.querySelector("dt input");
+    var inputContent = document.querySelectorAll("dd input");
+    inputTitle.onclick = function(){
+        // 获取当前input的选中状态
+        // console.log(this.checked);
+        // 遍历内容中的input选项，将他的选中状态设置为跟标题input一致
+        for(var i = 0;i < inputContent.length;i ++){
+            inputContent[i].checked = this.checked;
+        }
+
+        // 改变标题
+        changeTitle(this.checked);
+    }
+
+    // 2.操作内容选项时，使标题选项随之变化
+    // 遍历容器，给每个内容选项添加事件
+    // for(var i = 0;i < inputContent.length;i ++){
+    //     inputContent[i].onclick = function(){
+    //         // isAllSelected()
+    //         // 如果是全选，使标题input选中
+    //         // 如果不是全选，使标题input取消
+    //         inputTitle.checked = isAllSelected();
+    //         // 更改标题
+    //         changeTitle(inputTitle.checked);
+
+    //     }
+    // }
+
+    var dd = document.querySelector("dl dd");
+    dd.onclick = function(event){
+        // console.log(event);
+        inputTitle.checked = isAllSelected();
+        changeTitle(inputTitle.checked);
+    }
+
+
+
+
+    // 3.反选功能
+    var a = document.querySelector("dt a");
+    a.onclick = function (){
+        
+        for(var i = 0;i < inputContent.length;i ++){
+            // 遍历内容input，使每一个取反
+            inputContent[i].checked = !inputContent[i].checked;
+
+            // 使标题input与内容input保持一致
+            inputTitle.checked = isAllSelected();
+            // 更改标题
+            changeTitle(inputTitle.checked);
+
+        }
+    }
+
+    var titleLabel = document.querySelector("dt label");
+    //封装方法
+    // 功能：让标题的内容跟选框保持一致
+    // 参数：表示当前标题input的选中状态
+    function changeTitle(isSelect){
+        if(isSelect == true){
+            titleLabel.innerHTML = "全不选"
+        }
+        else{
+            titleLabel.innerHTML = "全选"
+        }
+    }
+
+
+    // 封装方法，判断内容选项中的input是否被全部选中
+    // 返回值：全选 true  没有全选false
+    function isAllSelected(){
+        for(var i = 0;i < inputContent.length;i ++){
+            // 所有的都被选中则为全选 true
+            // 只要有一个没有被选中，那么就是不全选 false
+            if (inputContent[i].checked == false){
+                return false;
+            }
+        }
+        // 遍历完毕，没有一个为false，那么就是全选
+        return true;
+    }
+</script>

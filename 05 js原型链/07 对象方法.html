@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // Object.create()
+    /**
+     * Object.create()
+     * 创建对象
+     * 参数1：一个对象，作为创建新对象的原型 可以null
+     * 参数2：可选 属性描述符
+     * 
+    */
+    var obj = Object.create(null);
+    console.log(obj);
+
+    var obj = {};
+    console.log(obj);
+    obj = Object.create(Object.prototype);
+    console.log(obj);
+    // 以上两个obj是一样
+
+    obj = Object.create(Object.prototype,{
+        // foo 所创建的对象的数据属性（value）
+        foo:{
+            // 属性描述符
+            // 可写 （可以更改值，可以重新写入）
+            writable:false,
+            // 可配置特性 可以改变属性的特征
+            configurable:false,
+            // 属性值
+            value:23
+        }
+        
+    })
+    console.log(obj);
+    // 当属性的writable特性为false时，修改属性值失败
+    obj.foo = 1000;
+    console.log(obj);
+
+    // 当configurable为false时，删除失败
+    delete obj.foo;
+    console.log(obj);
+
+
+    obj = Object.create(Object.prototype,{
+        // foo2 所创建对象的访问器属性
+        //访问器setter getter
+        // 通过访问器对属性进行操作
+        foo2:{
+            configurable:true,
+            get:function(){
+                console.log("get")
+                return 100
+            },
+            set:function(value){
+                document.write(value);
+                console.log("setting obj.foo2 to",value);
+            }
+        }
+    })
+    console.log(obj);
+    // setter 设置
+    // 本质就是调用了属性的set方法
+    obj.foo2 = 10000;
+
+    console.log(obj);
+    // getter 获取
+    // 本质就是调用属性的get方法
+    console.log(obj.foo2);
+
+</script>
+
+<script>
+    /**
+     * Object.keys
+     * */ 
+    var  obj = Object.create(Object.prototype,{
+        key1:{
+            // enumerable 可枚举
+            // 为true，那么这个属性就是可枚举的属性
+            // 为false(默认) 就是不可枚举的属性
+            enumerable:true,
+            value:43
+        },
+        key2:{
+            value:45
+        },
+        // 访问器不可枚举属性
+        key3: {
+            set:function(){
+                console.log("set")
+            },
+            get:function(){
+                return 23
+            }
+        }
+    })
+
+    // Object.keys()
+    // 返回对象中可枚举属性
+    console.log(Object.keys(obj));
+    // 返回对象中的属性（包含可枚举和不可枚举属性）
+    console.log(Object.getOwnPropertyNames(obj));
+</script>
+
+<script>
+    /**
+     * Object.defineProperty()
+     * 定义属性
+     * 参数1：需要定义属性的对象
+     * 参数2：定义的属性名
+     * 参数3：定义的属性的特性
+    */
+    var obj = {name:"xiaohei"};
+    Object.defineProperty(obj,"age",{
+        configurable:true,
+        writable:true,
+        value:45
+    })
+    console.log(obj);
+</script>
+
+<script>
+    /**
+     * Object.freeze()
+     * 冻结对象 对象内容结构不能再发生改变（但是读取是正常的）
+     * */ 
+    var obj = Object.create(Object.prototype,{
+        name:{
+            writable:true,
+            configurable:true,
+            value:3000
+        }
+    })
+
+    Object.freeze(obj);
+
+    obj.name = "4444444444444";
+    console.log(obj);
+
+    // delete obj.name;
+
+    console.log(obj.name);
+</script>
+

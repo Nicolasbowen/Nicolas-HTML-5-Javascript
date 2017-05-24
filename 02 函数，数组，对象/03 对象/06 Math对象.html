@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 0 10的随机数
+    // 10-100
+    // 2-10 20-100
+    // function getRandom() {
+    //     return Math.random();
+    // }
+    // console.log(getRandom());
+    // console.log(getRandom());
+    // console.log(getRandom());
+
+    var a = Math.random();
+    console.log(a);
+
+// var a = new Number(10);//实例对象
+// Math.PI 静态的属性
+    // 返回一个介于min和max之间的随机数
+    function getRandomArbitrary(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    var a = getRandomArbitrary(0,10);
+    console.log(a);
+    a = getRandomArbitrary(10,100);
+    console.log(a);
+
+    // 0 10
+    //[0,1)*10 --> [0,10) 小数 
+    // 10 - 100
+    var result = Math.random()*20 
+
+    //0-n Math.random()*n
+    //x-y 0-(y-x) + x 
+    function method(min,max){
+        return Math.random()*(max-min) + min; 
+    }
+
+    // 整数 100 99.044  
+    //[min,max]
+    function methodInt(min,max){
+        return Math.ceil(Math.random()*(max-min) + min);
+    }
+
+    // 整数
+    //0 1 2 3 4 5 6 7 8 
+    //%2
+    //0 1 0 1 0 1 0 1 
+    //%3
+    //0 1 2 0 1 2 0 1 2
+
+    function method3(min,max){
+        
+        //【0 100000】
+        var intNumber = Math.ceil(Math.random()*100000);
+        // 0 max-min
+        // 0 -9  %10
+       return intNumber%(max-min + 1) + min
+    }
+
+    console.log(method3(20,100));
+    console.log(method3(20,100));
+    console.log(method3(20,100));
+    console.log(method3(20,100));
+    console.log(method3(20,100));
+    console.log(method3(20,100));
+    console.log(method3(20,100));
+
+
+</script>
+
+<script>
+    
+    // [10,100] || [300,400]
+    //1. [300,400]  - 200=> [100，200]
+    // [10,200]
+    var num = method3(10,200);
+    // var result = 0;
+    // if(num >= 100){
+    //     result = num + 200;
+    // }
+    // else {
+    //     result = num;
+    // }
+    var result = num>100?num+200:num;
+    
+</script>
+
+<script>
+    // 给定两个点，求两个点之间的距离
+    
+    function qiuJuli(x1,y1,x2,y2){
+
+        console.log(x1,y1,x2,y2);
+
+    }
+    var aX = 2;
+    var aY = 4;
+    var bX = 4;
+    var bY = 5;
+    qiuJuli(aX,aY,bX,bY);
+
+
+    var aX = 10;
+    var aY = 20;
+    var bX = 23;
+    var bY = 50;
+    qiuJuli(aX,aY,bX,bY);
+
+
+    qiuJuli(10,30,20,50);
+</script>
+
+<script>
+
+    function qiuJuli2(d1,d2){
+        console.log(d1,d2);
+        var x = d1.x - d2.x;
+        var y = d1.y - d2.y;
+        var result = Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
+        return result;
+    }
+
+    // 两个点(x,y)
+    var point1 ={x:1,y:2};
+    var point2 = {x:12,y:13};
+
+    qiuJuli2(point1,point2);
+</script>
+<!--
+    猜数字游戏（用户只有三次机会猜数字）
+    19
+    1-100 数字，
+    如果用户输入数字跟自己预先设置一样，那么就是成功了，那么弹框提示用户猜对了
+    如果用户输入。。比。。。。。。大（小），那么就提示大（小），同时提示用户还有几次机会
+    再次弹框让用户输入数字。。。
+
+-->
+<script>
+    alert("dddd");
+    var result = prompt("aaa","bb");
+    console.log(result);
+</script>

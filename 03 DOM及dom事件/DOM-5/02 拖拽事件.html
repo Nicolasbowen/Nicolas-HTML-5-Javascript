@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        #container{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+        #ele{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+
+        }
+
+    </style>
+</head>
+<body>
+    <!--https://developer.mozilla.org/zh-CN/docs/Web/API/Event/stopPropagation-->
+    <div id="container"></div>
+    <!--draggable="true" 使元素可被拖动-->
+    <section id="ele" draggable="true"></section>
+
+</body>
+</html>
+<script>
+    var container = document.getElementById("container");
+    var ele = document.getElementById("ele");
+
+    // 当元素开始被拖动时触发
+    ele.ondragstart = function(event){
+        console.log("drag start");
+        // dataTransfter 用于在拖动过程中数据的传输
+        // 数据载体 设置数据对象 第一个参数key 第二个参数value
+        // 兼容火狐，只有设置了载体数据，才能拖放
+        // 传递的数据不是元素对象，可以为字符串
+        event.dataTransfer.setData("text",event.target.id);
+    }
+
+    // 当元素被拖动时触发
+    ele.ondrag = function(){
+        console.log("drag");
+    }
+    
+    // 当拖动结束时触发
+    ele.ondragend = function(){
+        console.log("drag end");
+    }
+
+
+    // 当拖动元素进入到放置目标中
+    container.ondragenter = function(){
+        console.log("drag enter");
+    }
+    // 当拖动元素在放置目标内（上方）
+    container.ondragover = function(){
+        console.log("drag over")
+    }
+    // 当拖动元素离开放置目标时触发
+    container.ondragleave = function(){
+        console.log("drag leave");
+    }
+
+    // 当拖动元素在放置目标区域内松开时触发
+    container.ondrop = function(event){
+        // 防止浏览器将拖入的元素在窗口中打开
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("drop");
+
+        console.log(event.dataTransfer.getData("text"));
+        // var ele = event.dataTransfer.getData("text");
+        // event.target.appendChild(document.getElementById(ele));
+
+        event.target.appendChild(ele);
+    }
+
+
+
+
+
+</script>

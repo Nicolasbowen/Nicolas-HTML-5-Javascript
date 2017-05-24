@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+
+</body>
+
+</html>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    // $("button").bind("click",function(){    
+    //     alert("-----")
+    // })
+    // $("button").click(function(){
+    //     alert("000000")
+    // })
+    // $("button").on("click",function(){
+    //     console.log("000000000")
+    // })
+    // $("button").on({
+    //     click:function(){
+    //         console.log("1111111111111")
+    //     },
+    //     dblclick:function(){
+    //         console.log("222222222222");
+    //     }
+    // })
+
+</script>
+<style>
+    div {
+        background-color: red;
+    }
+</style>
+
+<div>
+    <span>span001</span>
+    <span>span002</span>
+    <span>span003</span>
+</div>
+
+<script>
+    // 写法一：
+    // $("div span").each(function(){
+    //     $(this).click(function(){
+
+    //         alert($(this).text());
+    //     })
+    // })
+
+    // 写法二：
+    // $("div").click(function (event) {
+    //     var tagName = event.target.tagName;
+    //     console.log(tagName);
+    //     if (tagName.toLowerCase() == "span") {
+    //         var target = $(event.target);
+    //         console.log(target);
+
+    //         alert(target.text());
+    //     }
+    // })
+
+    $("button").click(function(){
+        $("<span>span4444</span>").appendTo($('div'));
+    })
+
+    // 写法三：
+    // 事件代理 delegate
+    // $("div").delegate("span","click",function(event){
+    //     alert($(this).text());
+    // })
+    $("div").on("click","span",function(event){
+        console.log(event.target);
+        alert($(this).text());
+    })
+
+</script>

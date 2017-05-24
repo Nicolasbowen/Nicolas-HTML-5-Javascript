@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="point.js"></script>
+<script src="line.js"></script>
+<script>
+    // var point1 = new Point(100,100,"blue",40);
+    // point1.show();
+
+    var point1 = new Point(80,80);
+    point1.show();
+
+    var point2 = new Point(200,300);
+    point2.color = "yellow";
+    point2.size = 100;
+    point2.show();
+
+    var point3 = new Point(300,40);
+    point3.show();
+
+    var line = new Line(point2,point3);
+    line.color = "red";
+    line.size = 10
+    line.show();
+
+    (new Line(point1,point2)).show();
+    (new Line(point1,point3)).show();
+
+</script>

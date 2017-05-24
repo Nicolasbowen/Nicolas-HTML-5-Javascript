@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+
+    // 生成随机的属性值
+    // 随机的大小【30，80】
+    var size = Math.random()*50 + 30;
+
+    // 随机的颜色
+    // hsl(h色调 0表示红色 120 表示绿色 240蓝色 值的范围0-360)
+    // s 饱和度（0到100%） l（亮度 0到100%）
+    // 获取一个随机的色调值
+    var h = Math.random()*360
+    var color = `hsl(${h},100%,50%)`;
+    // $("<p>pppp</p>").appendTo("body").css({
+    //     color:color
+    // })
+
+    // 随机的left 0-(window-size)
+    var left = Math.random()*($(window).width() - size);
+    var atop = Math.random()*($(window).height() - size);
+
+
+    // 创建div标签，并设置样式
+    $("<div></div>").css({
+        width:size,
+        height:size,
+        backgroundColor:color,
+        borderRadius:"50%",
+
+    }).appendTo("body").offset({
+        left:left,
+        top:atop
+    })
+
+
+    // 运动
+    // 求得一个随机的速度
+    // 水平方向上的速度 [0.5 3] [-0.5 -3]
+    // 竖直方向上的速度 [0.5 3] [-0.5 -3]
+
+    // [-3 -0.5 ] [0.5 3]
+    // 负值区间 右移 1 --> [-2 3] --> 右移2 --> [0 5]
+    // [-2 3]
+    var x = Math.random()*5 - 2;
+    // var xSpeed = x < 0.5 ? x-1 : x;
+    var y = Math.random()*5 - 2;
+    // var ySpeed = y < 0.5 ? y-1 : y;
+    var speed = {
+        x:x < 0.5 ? x-1 : x,
+        y:y < 0.5 ? y-1 : y
+    }
+    console.log(speed);
+    function move(){
+        // 记录移动前的位置
+        var left = $("div").offset().left;
+        var top = $("div").offset().top;
+
+        // 改变位置的值
+        left += speed.x;
+        top += speed.y;
+
+        // 设置新的位置
+        $("div").offset({
+            left:left,
+            top:top
+        })
+
+        // 判断本次小球是否撞到边缘，如果撞到边缘，让他下次移动时，改变速度方向
+        if (left <= 0 || left >= $(window).width()-size){
+            // 到达水平方向上的边缘
+            // 使水平方向上的速度改变
+            speed.x = 0-speed.x;
+        }
+
+        if (top <= 0 || top >= $(window).height()-size){
+            speed.y = 0-speed.y;
+        }
+
+        requestAnimationFrame(move);
+    }
+
+    // setInterval(move,10);
+    requestAnimationFrame(move);
+
+</script>
+<!--
+    animation+keysframe
+    transtion
+    aniamte show/hide
+    setTimeout/setInterval
+    请求动画帧
+    requestAnimationFrame()
+    动画原理跟settimeout和setInterval类似
+    通过递归方式调用同一方法不断的细化画面
+    浏览器运行时也会优化方法的调用
+    如果页面不是在激活状态，动画会自动停止，有效节省CPU开销
+-->
+<script>
+
+</script>

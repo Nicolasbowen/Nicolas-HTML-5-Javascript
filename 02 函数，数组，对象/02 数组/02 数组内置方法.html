@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var array = [];
+    // 获取当前时间对象的毫秒数
+    var start = +new Date();
+    console.log(start);
+    for (var i = 0 ;i < 10000;i ++){
+        array.push("123");
+    }
+    var end = +new Date();
+    console.log(end-start);
+
+    var array2 = [];
+    start = +new Date();
+    for (var i = 0; i< 10000;i++){
+        array.unshift("123");
+    }
+    end = +new Date();
+
+    console.log(end-start);
+
+
+</script>
+<script>
+    // splice()
+    var array = [1,2,3,4];
+    // array.splice(1,0,"100");
+    array.splice(1,2,"100","444");
+    console.log(array);
+
+    // includes
+    console.log(array.includes("100"));
+
+    // slice
+    array = ["a",'b',"c",'d',"dddd"]
+    console.log(array.slice());
+    console.log(array.slice(1))
+    console.log(array.slice(1,4))
+    console.log(array);
+
+    // join
+    // 获取array当中的所有的数据，组成字符串
+    console.log(array.join("*"))
+    console.log(array);
+    
+    var str = array.toString();
+    console.log(str)
+    console.log(array);
+
+    // [1,2,5,4,3,1,6,7,3]
+    // 数组排重 
+    // [1.8,1.7,3,1.2] 对数组进行排序然后找到最大值和最小值
+</script>

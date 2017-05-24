@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function qiuMianji(r) {
+        return 3.14 * r * r;
+    }
+
+    var sum = qiuMianji(4) + qiuMianji(10);
+    console.log(sum);
+
+    // 闰年判断
+    // 1.能被4整除，但是不能被100整除 是闰年
+    // 2.能被400整除 是闰年 
+
+    function isLeapYear(year) {
+        if (year % 4 == 0 && year % 100 != 0) {
+            return true;
+        }
+        if (year % 400 == 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    console.log(isLeapYear(2001));
+
+</script>
+
+<script>
+    // 质数判断
+    // 质数：从2起，只能被1或者自己整除数是质数
+    //  2 3 4 5 6 7 8 。。。。。
+    function isPrimeNumber(num) {
+        if (num < 2) {
+            return false;
+        }
+
+        for (var i = 2; i < num; i++) {
+            if (num % i == 0) {
+                // 结束方法
+                return false;
+                // 结束语句
+                // break;
+            }
+        }
+
+        return true;
+
+    }
+
+    var isPrime = isPrimeNumber(11);
+    console.log(isPrime);
+
+    console.log(isPrimeNumber(12))
+    console.log(isPrimeNumber(3));
+
+</script>
+
+<script>
+    // 斐波那契数列
+    //1 1 2 3 5 8 13 21 34 ........
+    // 求得第n位上的数值，n从0开始
+    function feibo(n) {
+        if (n < 2) {
+            return 1;
+        }
+        var a1 = 1;
+        var a2 = 1;
+        var a3 = a1 + a2;
+        for (var i = 2; i < n; i++) {
+            a1 = a2;
+            a2 = a3;
+            a3 = a1 + a2;
+        }
+
+        return a3;
+    }
+
+    console.log(feibo(0))
+    console.log(feibo(1))
+    console.log(feibo(2))
+    console.log(feibo(3))
+    console.log(feibo(4))
+    console.log(feibo(5))
+    console.log(feibo(6))
+    console.log(feibo(7))
+    console.log(feibo(8))
+
+</script>
+<script>
+    // 百钱买百鸡 100钱正好买100只鸡，包含至少一只公鸡，一只母鸡，一只小鸡
+    // 公鸡5钱一只，母鸡3钱一只，小鸡1钱3只
+    //公鸡5钱一只，母鸡3钱一只，小鸡1钱3只
+    function maiJi() {
+        var count = 0;
+        var array = [];
+        for (var cock = 1; cock < 20; cock++) {
+            // cock
+            for (var hen = 1; hen < 32; hen++) {
+                // hen
+                for (var chicken = 1; chicken < 99; chicken++) {
+                    count++;
+                    if (cock + hen + chicken == 100 && cock * 5 + hen * 3 + chicken / 3 == 100) {
+                        // console.log("公鸡：" + cock + "母鸡：" + hen + "小鸡：" + chicken);
+                        // return 
+                        // document.write("dddddd")
+                        // array.push
+                        // 公鸡：12 cock：34 chicken 60
+                        // var data = [cock,hen,chicken];
+                        var data = {
+                            cock:cock,
+                            hen:hen,
+                            chicken:chicken
+                        }
+                        array.push(data);
+                    }
+                }
+            }
+        }
+        // 一个变量保存一个数据
+        // 多个数据怎么保存
+        return array;
+    }
+
+    // var array = [];
+    var aa = maiJi();   
+    // aa.gongjishu
+    console.log(aa);
+    // 用数组完成
+    // for(var i = 0;i < aa.length;i ++){
+    //     // aa[i]  数组
+    //     var dataArr = aa[i];
+    //     console.log("data:",dataArr);
+    //     for(var j = 0;j < dataArr.length;j ++){
+    //         console.log(dataArr[j]);
+    //     }
+    // }
+
+    // for (var i = 0;i < aa.length;i ++){
+    //     // aa[i]
+    //     for(var j = 0;j < aa[i].length;j ++){
+    //         console.log(aa[i][j])
+    //     }
+    // }
+
+    // 用对象完成
+    console.log(aa);
+    for (var i = 0;i < aa.length;i++){
+        // console.log(aa[i]);
+        // console.log(aa[i].cock);
+        // console.log(aa[i].chicken);
+        // console.log(aa[i].hen);
+        for (var key in aa[i]){
+            console.log(key);
+            // 不能打点调用key，因为对象中不存在以key作为命名的键值
+            // console.log(aa[i].key);
+            // 获取aa数组中的第i个元素，并且得到这个元素中以key变量值作为键的值
+            console.log(aa[i][key]);
+        }
+    }
+</script>

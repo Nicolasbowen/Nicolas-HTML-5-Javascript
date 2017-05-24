@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!--数组迭代-->
+    <!--for for-in forEach-->
+    
+</body>
+</html>
+<script>
+    function funFilter(value,index,array){
+        console.log(value,index,array);
+        return value == 2;
+    }
+    var arr = [1,2,2,2,3,5].filter(funFilter);
+    console.log(arr);
+
+    [1,2,2,2,3,5].filter(function(value,index,array){
+        return value == 2;
+    });
+
+    var arr = ["1",'10','34','9'].map(function(ele){
+        // if (ele < 10){
+        //     return "0"+ele;
+        // }
+        // return ele;
+        // 三元运算符的写法
+        return ele < 10 ? "0"+ele : ele;
+    })
+
+    console.log(arr);
+</script>
+
+<!--
+    数组
+    栈  
+    队列
+-->

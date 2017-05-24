@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        div{
+            width: 200px;
+            height: 200px;
+            border: 10px solid red;
+            padding: 20px;
+
+            margin: 30px auto;
+
+            overflow: auto;
+
+        }
+    </style>
+</head>
+<body>
+    <div>我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+    </div>
+</body>
+</html>
+<script>
+    var div = document.querySelector("div");
+    // 内容+内边距
+    console.log(div.clientWidth);
+    console.log(div.clientHeight);
+    // 内容+内边距+边框
+    console.log(div.offsetWidth);
+    console.log(div.offsetHeight);
+
+    // 元素在窗口中的位置
+    console.log(div.offsetLeft);
+    console.log(div.offsetTop);
+
+    console.log(div.scrollWidth);
+    console.log(div.scrollHeight);
+
+    console.log(div.scrollLeft);
+    console.log(div.scrollTop);
+
+</script>
+
+
+
+

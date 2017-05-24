@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!--自定义属性 以data-作为开头 区别于系统自带属性-->
+    <div id="test" data-name="123" data-age="12"></div>
+
+    <p>ddd</p>
+</body>
+</html>
+<script>
+    // 自定义属性的设置和获取
+    var div = document.getElementById("test");
+    // 获取自定义属性值
+    // console.log(div.id);
+    // 自定义属性错误的获取方式
+    // console.log(div.data-name);
+    // console.log(div.dataName);
+    console.log(div.getAttribute("data-name"));
+    
+    // 元素的所有的自定义属性都保存在一个对象中--dataset对象
+    console.log(div.dataset);
+    console.log(div.dataset.name);
+
+
+    // 自定义属性的设置
+    // div.setAttribute("data-index","1");
+    div.dataset.index = 2;
+    div.dataset.city = "henan";
+
+    //data-* 属性赋予我们在所有的HTML元素上嵌入自定义数据的方式
+
+</script>
+
+<script>
+    var  p = document.querySelector('p');
+    console.log(p.dataset);
+</script>

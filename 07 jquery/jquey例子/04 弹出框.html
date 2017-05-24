@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        body,html{
+            margin: 0;
+            height: 100%;
+        }
+        .pageContent{
+            height: 500px;
+        }
+        #bg{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: gray;
+            opacity: 0.3;
+            display: none;
+        }
+        #content{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+            /*left: 200px;
+            top: 100px;*/
+            display: none;
+        }
+        #content header{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            position: relative;
+            background-color: grey;
+        }
+        #content header span{
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        #content section{
+            padding: 20px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="pageContent"></div>
+    <button>点击弹出弹框</button>
+    <div class="pageContent"></div>
+    <!--弹框背景，弹框内容-->
+    <div id="bg"></div>
+    <div id="content">
+        <header>
+            登录 <span>X</span>
+        </header>
+        <section>
+            <form action="">
+                <input type="text">
+                <input type="submit" value="提交">
+            </form>
+        </section>
+    </div>
+</body>
+</html>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    // 处理遮挡层，使遮挡层的大小始终和文档大小保持一致
+    function bghandle(){
+        // 当前文档的大小有多少，背景视图也有多少
+        $("#bg")
+        .width($(document).width())
+        .height($(document).height());
+    }
+    // 弹出层居中处理
+    function centerHandle(){
+        // 标签绝对定位相对于是文档
+        // 在窗口中居中，那么需要加上文档超出窗口的部分
+        var left = $(document).scrollLeft() + $(window).width()/2 - $("#content").width()/2;
+        var top = $(document).scrollTop() + $(window).height()/2 - $("#content").height()/2;
+
+        $("#content").css({
+            left:left,
+            top:top
+
+        })
+
+    }
+    // 当窗口内容发生改变时触发
+    $(window).scroll(function(){
+        centerHandle();
+    })
+    // 当窗口大小发生改变时触发
+    $(window).resize(function(){
+        bghandle();
+        centerHandle();
+    })
+    $("button").click(function(){
+        $("#content").css("display","block");
+        $("#bg").css("display","block");
+        bghandle();
+        centerHandle();
+    })
+    $("span").click(function(){
+        $("#bg").css("display","none");
+        $("#content").css("display","none");
+    })
+
+    // $("#content header").mousedown(function(){
+    //     console.log("down")
+    //     $(window).mousemove(function(){
+    //         console.log("move");
+    //     })
+    // })
+    // $(window).mouseup(function(){
+    //     console.log("up");
+    //     $(window).unbind("mousemove");
+    // })
+    $("#content header").mousedown(function(event){
+        console.log(event);
+        console.log("相对于屏幕:",event.screenX,event.screenY);
+        console.log("相对客户端，相对于浏览器",event.clientX,event.clientY);
+        console.log("相对于文档",event.pageX,event.pageY);
+        console.log("相对于目标元素",event.offsetX,event.offsetY);
+
+        console.log('down')
+        // 第一次，点下的时候鼠标相对于窗口的位置
+        var prevX = event.clientX;
+        var prevY = event.clientY;
+        $(window).mousemove(function(ev){
+            console.log("move")
+            // var mx = ev.clientX;
+            // var my = ev.clientY;
+            // 获取鼠标相对于文档移动的距离 就是标签元素相对于文档移动的距离
+            var movex = ev.clientX-prevX;
+            var movey = ev.clientY-prevY;
+            // 获取移动后的位置
+            var x = $("#content").offset().left + movex;
+            var y = $("#content").offset().top + movey;
+            if (x <= 0 ){
+                x = 0;
+            }
+            else if (x >= $(window).width() - $("#content").width()){
+                x = $(window).width() - $("#content").width();
+            }
+            if (y <= 0){
+                y = 0;
+            }
+            else if (y >= $(window).height() - $("#content").height()){
+                y = $(window).height() - $("#content").height();
+            }
+            $("#content").css({
+                left:x,
+                top:y
+            })
+            // 记录本次移动的鼠标相对于窗口的的位置，以便下次的使用
+            prevX = ev.clientX;
+            prevY = ev.clientY;
+
+        })
+    })
+    $('#content header').mouseup(function(){
+        console.log("up");
+        $(window).unbind("mousemove");
+    })
+    $(window).mouseup(function(){
+        console.log("window --up");
+        $(window).unbind("mousemove");
+    })
+
+</script>

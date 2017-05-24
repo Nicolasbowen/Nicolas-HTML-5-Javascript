@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+<script src="js/jquery-3.1.1.js"></script>
+<script>
+    $("body>div").css({
+        width:200,
+        height:200,
+        border:"10px solid red",
+        padding:20,
+        margin:"50px auto"
+    })
+    // 样式width和height的值
+    console.log($("div").width());
+    console.log($("div").height());
+    // width/height + padding
+    console.log($("div").innerWidth());
+    console.log($("div").innerHeight());
+    // width/height + padding + border
+    console.log($("div").outerWidth())
+    console.log($("div").outerHeight());
+</script>
+
+<style lang="">
+    section{
+        width: 400px;
+        height: 400px;
+        background-color: red;
+        margin: 10px auto;
+        position: relative;
+    }
+    section>div{
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+    }
+</style>
+<section>
+    <div></div>
+</section>
+
+<script>
+    // .offset()
+    // 相对于文档(相对于窗口)的偏移量（left top）
+    // 设置
+    $("section>div").offset({
+        left:200,
+        top:100
+    })
+    // 获取
+    var theoffset = $("section>div").offset();
+    console.log(theoffset);
+    console.log(theoffset.left);
+    console.log(theoffset.top);
+
+
+</script>
+
+<script>
+    // .position() 位置
+    // 获取位置 相对于他的定位父元素(离他最近且含有postion的父元素)
+    var result = $("section>div").position();
+    console.log(result);
+</script>
+
+<script>
+    for (var i = 0;i < 60;i ++){
+        $("<p>p标签</p>").appendTo("body");
+    }
+
+    //.scrollTop()
+    // 获取竖直方向上滚动条的位置
+    console.log($(document).scrollTop());
+    // 指定滚动条的位置 参数不能带单位
+    // $(document).scrollTop(300);
+    // $(document).scrollTop("300");
+    // 错误写法
+    // $(document).scrollTop("300px")
+
+    //.scrollLeft() 同.scrollTop()
+
+    $(document).scrollTop($('html').height() - $(window).height());
+
+</script>

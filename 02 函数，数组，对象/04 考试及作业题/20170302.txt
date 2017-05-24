@@ -1,0 +1,52 @@
+﻿斗鱼
+文档接口可以在斗鱼官网可以下载  斗鱼首页->开放平台
+
+需要使用什么插件都可以npm 下载，导入即可用
+放在assets中的资源，通过import导入
+
+导航条可以每个页面都使用一个
+使用到插槽
+
+vux 这个组件库并不好用
+
+
+ vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：
+
+const vuxLoader = require('vux-loader')
+module.exports = vuxLoader.merge(webpackConfig, {
+  options: {},
+  plugins: [
+    {
+      name: 'vux-ui'
+    }
+    ]
+})
+
+
+这个配置时，用变量webpackConfig接受文件中 module.exports 右侧内容
+然后加入以上代码
+
+
+配置好，开始看组件
+
+scroller 内部不能放太多东西，看组件解释
+模糊处理 容易被背景图遮挡
+轮播图问题：缩小不会出问题，不能放大内容会方法 
+
+vux 比ionic差很多
+vux不用讲太长时间，详细讲几个组件，如何使用
+
+
+饿了么项目：
+vux的tabbar没问题，可以放心使用
+上官网   h5.eleme  先共享位置   跟ip地址获取
+
+ 开蓝灯 才能获取地址（给学生开蓝灯）
+
+第一个请求：把IP地址 在gh通过 geohaxi 转换为哈希 经纬度 12 
+第二个请求：request 请求天气预报  imgHaxi 图片
+第三个请求：Hotsearch
+第四个请求：请求轮播图
+第5个。。。获取饭店数据
+
+

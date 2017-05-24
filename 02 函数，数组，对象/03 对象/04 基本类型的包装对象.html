@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!--
+    基本数据类型
+    string number boolean null undefined
+-->
+<!--
+    new 创建一个新的对象
+    不加new 这个方法就是一个普通的函数，返回值的类型是什么类型取决于这个方法
+    加new 这个方法就是一个构造函数 
+         new用于负责创建对象，而构造函数负责对对象进行初始化
+         在构造函数中必须使用this ，通过this，对new出来的对象进行初始化
+
+    在js当中，数字是一种基本的数据类型，但是也支持数字对象
+    该对象是原始数据的包装对象，必要时，js在会两者之间进行自动的转换
+
+-->
+<script>
+    // number
+    var num = 34;
+    num = Number(45);
+    num = new Number(34);
+    console.log(typeof num);
+
+    num = 345;
+    // 如果num是基本类型，那么在下一行中就被转换为了对象类型
+    var result = num.toFixed(2);
+    console.log(result);
+
+    // 静态属性 Number.EPSILON (保存的值始终是不变)
+    var a = 0.1;
+    var b = 0.2;
+    var c = 0.1;
+    if (a + b - c == 0.2 ){
+        console.log("=====================")
+    }
+
+    if (a+b-c < Number.EPSILON + 0.2){
+        console.log("9999999")
+    }
+
+    // 实例 对象 
+    var  aa = new Number(23);
+
+</script>
+
+<script>
+    // ----------boolean
+    var bool = false;
+    bool = Boolean(false);
+    bool = Boolean(234234);
+    console.log(bool,typeof bool)
+    bool = new Boolean("dddddd");
+    console.log(bool,typeof bool)
+
+    bool = new Boolean(false);//真
+    if (bool){
+        console.log("-----------")
+    }
+    // var aa = bool.valueOf();
+    // if (aa){
+
+    // }
+    if(bool.valueOf()){//假
+        console.log("0000000000000")
+    }
+    bool = Boolean(false);
+    if (bool){
+        console.log("111111111")
+    }
+
+</script>
+
+<script>
+    // --------String
+    var str = "eeeee";
+    str = String("dddd");
+    console.log(str,typeof str);
+    str = new String("ddddd");
+    console.log(str,typeof str);
+
+    // 多行字符
+    // var str = "ddddddddddddd   skfja;fuiaewfjasl fs skjf asfd;asfj"
+    str = "abddd" 
+    + "sdsf "
+    +" dddd";
+    console.log(str);
+    str = "ddddd \n\
+    dddddd";
+    str = "dddd \
+    sdasfasf"
+    console.log(str);
+    // es6 新特性 
+    str = `aaddd`;
+    console.log(str);
+    str = `sjasfsfas
+    asfasfa
+    asfasdfasf
+    sfasfasf`
+    console.log(str);
+    var a = 23;
+    var b = 123;
+    str = `aaa ${a+b} lllll`;
+    console.log(str);
+</script>
+<script>
+
+    var aa = 123;
+    //全局作用域  function作用域
+    function method2(){
+        var bb = 12
+
+        if (true){
+            var cc = 23;
+
+            
+
+        }
+        console.log(cc);
+    }
+
+    // var 把方法体作为一个作用域
+    // let 把块级区域（{}）作为一个作用域
+    //let  块级域
+    let leta = 23;
+    function method(){
+        console.log(leta);
+        let letb = 34;
+        console.log(letb);
+        if (true){
+            console.log(letb);
+            let letc = 100;
+            
+        }
+        // console.log(letc);
+    }
+
+    method();
+    // console.log(letb);
+</script>
+<script>
+    // charAt() char字符
+    var str = "aBcdefg";
+    console.log(str.charAt(6));
+    console.log(str.length);
+
+    // charCodeAt() 获取字符串在某个位置上的字符所对应的unicoded码值
+    console.log(str.charCodeAt(1));
+
+    var  str1 = "abd";
+    var str2 = "wef";
+    var str3 = str1.concat(str2);
+    console.log(str3);
+    var str4 = str2.concat(str1);
+    console.log(str4);
+    // 推荐使用以下
+    str1 += str2;
+    console.log(str1);
+    str3 = str1 + str2;
+    console.log(str3);
+
+    // replace(要被替代的子串，替换子串的新的字符串)
+    var test = "i am xiaomei";
+    var newTest = test.replace("xiaomei","xiaole");
+    console.log(newTest);
+
+    var data = "apple*orange*banana";
+    var array = data.split("*");
+    console.log(array);
+    for (var i =0;i < array.length;i ++){
+        // 创建一个p标签
+        var pEle = document.createElement('p');
+        // 向p标签中插入内容
+        pEle.innerHTML = array[i].fontcolor("red").toUpperCase();
+        // 向body中添加子节点p（子元素 子标签）
+        document.body.appendChild(pEle);
+    }
+
+    var aa = "abcdddddddddddd";
+    console.log(aa.toUpperCase());
+
+    var bb = aa[0].toUpperCase();
+    console.log(bb);
+    var result = bb + aa.slice(1,aa.length-1);
+    console.log(result);
+
+   result = aa.replace(aa[0],aa[0].toUpperCase());
+   console.log(result);
+
+   result = aa.substr(0,1).toUpperCase() + aa.substr(1);
+   console.log("substr--:",result);
+
+   result = aa.substring(0,1).toUpperCase() + aa.substring(1,aa.length-1);
+   console.log("substring:::",result);
+
+   var test = "abcdefghigk";
+   var aa = test.charAt(0);
+
+//    result = test.charAt(0).toUpperCase() + test.charAt(1) + test.charAt(2);
+   var sum = ""; 
+   for (var i = 0;i < test.length;i ++){
+        var char = test[i];
+        if (i == 0){
+            char = char.toUpperCase();
+        }
+        // 累加
+        sum += char;
+   }
+   console.log(sum);
+
+
+
+
+</script>
+<script>
+    // i am baishuang ,i am from henan;    baishuang  xxxxx
+    // i am xxxxxx ,i am from henan;
+
+    // 方式一：
+    var origin = "i am baishuang ,i am from henan.";
+    var result = origin.replace("baishuang","xxxxxx");
+    console.log(result);
+
+    // 方式二：
+    function myReplace(origin,oSub,newSub){
+        var subIndex = origin.indexOf(oSub);
+        console.log(subIndex);
+        var start = origin.substring(0,subIndex);
+        console.log(start);
+        var end = origin.substring(subIndex + oSub.length);
+        console.log(end);
+
+        return start + newSub + end;
+
+    }
+
+    result = myReplace(origin,"baishuang","xxxxx");
+    console.log(result);
+
+    // 方式三：
+    function myReplace2(origin,oSub,newSub){
+        for (var i = 0;i < origin.length-oSub.length+1;i ++){
+            var theSub = origin.substr(i,oSub.length);
+            console.log(theSub);
+            if (theSub == oSub){
+                var start = origin.substring(0,i);
+                console.log(start);
+                var end = origin.substring(i + oSub.length);
+                console.log(end);
+                return start + newSub + end;
+                // break;
+            }
+        }
+    }
+
+    result = myReplace2(origin,"baishuang","xxxx");
+    console.log(result);
+</script>
+
+<!--
+	练习:
+	字符统计
+	hellohellohello
+	统计字符串中有多少个字符，每个字符串出现的次数，并返回结果数据
+	give me some sunshine,give me a smile.give me some sunshine,give me a smile.
+	统计出现哪些单词，每个单词出现的次数
+    
+	
+    h:9
+    e:2
+    r:3
+-->
+
+<script>
+    function tongji(string){
+        var obj = {};
+        // for循环遍历字符串中所有的字符
+        for (var i = 0;i < string.length;i ++){
+            // 获取字符串中第i位字符
+            var char = string.charAt(i);
+            // obj.char = 1;
+            // console.log(obj[char]);
+            // 判定对象中是否存在本次循环得到字符
+            if (!obj[char]){
+                // 对象中不存在本次得到的字符
+                // 设置本字符value为1
+                obj[char] = 1;
+            }
+            else {
+                // 对象中已经存在本次得到的字符
+                // 累加本字符的value值
+                // obj[char] += 1;
+                // console.log(obj[char]);
+                obj[char] = obj[char] + 1;
+            }
+        }
+        return obj;
+    }
+    var result = tongji("hellohello");
+    console.log(result);
+</script>
+
+<script>
+    // {h:1,e:2,l:1}
+    var obj = {};
+    // 添加一对键值对
+    obj.h = 1;
+    obj.e = 3;
+    obj.l = 3;
+    // 获取h这个键对应value值
+    var test = obj.h;
+
+
+    var obj = {};
+    var char = "h";
+    // .后的内容就是确定的key值，而不能是变量名字
+    // obj.char = 1;
+    // 添加一对键值对  key要放在[] vlaue 等号右侧
+    obj[char] = 1;
+    obj['char'] = 100;
+    console.log(obj);
+
+    console.log(obj.char);
+    console.log(char);
+    // 获取obj对象中char这个变量所保存的值（键）所对应的value值
+    console.log(obj[char]);//1
+    // 获取obj对象中char这个key值对应的value
+    console.log(obj["char"])//100
+
+</script>

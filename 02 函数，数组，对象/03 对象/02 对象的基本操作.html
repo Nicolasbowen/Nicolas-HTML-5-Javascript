@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // ------对象的创建方式
+    var obj1 = {name:"xiaomei"};
+    console.dir(obj1)
+    var obj2 = new Object();
+    console.dir(obj2);
+    var obj3 = Object();
+    console.log(obj3);
+
+    var person = {
+        name:"xiaozhang",
+        age:100,
+        skill:function(){
+            console.log("我是编程小能手")
+            console.log("woshi",this.name);
+        }
+    }
+    //访问器 （setter getter） 
+    // 获取对象当中的属性值 语法：对象.属性名
+    console.log("获取对象的属性name的值:",person.name)
+    console.log("获取对象的属性age的值：",person.age);
+    console.log("获取对象的方法skill:",person.skill);
+    //调用（执行）对象的方法 
+    person.skill();
+
+    var name = person.name;
+    console.log(name);
+
+    // 给对象添加属性和方法
+    // 添加属性
+    person.fuse = "huangse";
+    // 重置属性值
+    person.name = "xiaowang";
+    // 添加方法
+    person.getAge = function(){
+        console.log("我想得到年龄")
+        // return person.age;
+        // this代表当前方法的拥有者 
+        return this.age;
+    }
+    console.log(person);
+
+    var age = person.getAge();
+    console.log("得到的年龄是：",age);
+
+    // 删除属性和方法
+    delete person.age;
+    console.log(person);
+
+    // 加()调用方法
+    // delete person.skill();
+    delete person.skill;   
+    console.log(person);
+
+
+    var  a = "name";
+    // person[a]
+    // person["name"]
+    // person.name
+</script>
+
+<script>
+// 遍历对象
+    var person = {
+        age:13,
+        name:"34"
+    }
+
+    for(var key in person){
+        console.log(key);
+        // person.key  错误写法，因为person对象中没有一个以key作为命名的键
+        // 获取person对象中key这个变量所保存的键所对应的值
+        console.log(person[key]);
+    }
+
+</script>

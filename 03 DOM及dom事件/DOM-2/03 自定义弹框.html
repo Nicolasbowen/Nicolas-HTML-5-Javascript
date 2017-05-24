@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        body,html{
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        #overlay{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color:grey;
+            opacity: 0.5;
+        }
+        #alert{
+            width: 400px;
+            height: 200px;
+            position: absolute;
+            left: calc(50% - 200px);
+            top: calc(50% - 100px);
+            background-color: orange;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        #alert header{
+            height: 40px;
+            background-color: palegoldenrod;
+        }
+        #alert header span{
+            background-color: gainsboro;
+            float: right;
+
+        }
+        #alert main{
+            background-color: white;
+            height: 145px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <center><button>显示弹框</button></center>
+    <div id="overlay" style="display: none">
+    </div>
+    <div id="alert" style="display: none">
+        <header><span>X</span></header>
+        <main></main>
+    </div>
+    
+</body>
+</html>
+<script>
+    var button = document.querySelector("button");
+    var overlay = document.getElementById("overlay");
+    var alert = document.getElementById("alert");
+    button.onclick = function(){
+        overlay.style.display = "block";
+        alert.style.display = "block";
+    }
+</script>

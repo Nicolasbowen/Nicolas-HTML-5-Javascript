@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    
+</body>
+</html>
+<script>
+    //aa:变量
+    var aa = 20;
+    var bb = ["23",90];
+/**
+ * 内存
+ * 栈内存stack  堆内存heap
+ * stack 自动的分配内存空间，由系统自动释放
+ * heap 动态分配的内存空间，大小不定，也不会自动释放
+ * 根据内存分配方式的，将数据分为两种
+ * 基本类型 存放在栈内存当中 数据段简单，大小确定，可以直接存放直接访问
+ *          number string boolean undefined null
+ * 
+ * 引用类型 存放在堆内存当中的对象 变量保存的是指针
+ *         当需要访问引用类型是，首先从栈中获取该对象的地址指针，
+ *         通过再从堆中取得所需数据
+ * */ 
+
+
+// 引用类型的销毁
+// js当中：垃圾回收机制 
+// （找出不再使用的变量，然后释放掉占用的内存）
+// 这个过程是定期发生的，不是实时的，所以并不是变量不用时，立马会被会清理
+// 固定时间间隔的周期性的执行，开销比较大
+    
+
+</script>
+
+<script>
+    // 全局变量的销毁：页面被关闭（销毁）
+    var a = {name:"xiaomei"}
+
+    function aa(){
+        // 局部变量：当方法体结束就会被销毁掉
+        var b = {name:"xiaomei"};
+        // for (var i = 0;i < 1000000;i ++){
+        //     var bbb = {name:"xiaomei"};
+        // }
+
+        console.log(i);
+    }
+    aa();
+
+
+    var testv = null;
+    function test(){
+        var bb = [1,2];
+        testv = bb;
+    }
+    test();
+    console.log(testv);
+
+    // 循环引用
+    var obj = {name:"xiaomei"};
+    var obj2 = {};
+    obj2.test = obj;
+
+    obj = obj2;
+
+</script>
+
+
+

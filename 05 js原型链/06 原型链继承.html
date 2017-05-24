@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!--
+    继承
+    父类（基类）/ 子类（派生类）
+    子类是继承父类，子类就拥有了父类的全部内容
+    而子类也可以拥有自己的内容
+
+-->
+<script>
+    function Animal(age,life){
+        console.log("11111")
+        this.age = age;
+        this.life = life;
+        
+    }
+    Animal.prototype.maofa = "黄色";
+    Animal.prototype.run = function(){
+        console.log("run......");
+    }
+
+    var aAnimal = new Animal(10,"has life");
+    console.log(aAnimal);
+
+    // function Dog(){
+    //     this.age = 23;
+    // }
+    // new Dog();
+    /**
+     * 当Animal中的所有的属性和方法
+     * Person都需要，那么就可以让Person来继承Animal
+     * 一旦实现了继承，那么Animal当中的属性和方法，
+     * Person都拥有了（自己都可以不用写了）
+     * 
+    */
+    function Person(age,life,sex){
+        console.log(this)
+        // this.age = age;
+        // this.life = life;
+        // 错误,不能实现继承 这个方法的执行者是widnow，那么里面的this就是window
+        // Animal(age,life);
+
+        // 想让person对象调用Animal这个方法
+        // person-->this
+        // 这里使用this打点调用Animal，出现语法错误，Animal不是this对象的方法
+        // this.Animal(age,life);
+
+        // 想调用Animal时，向让Animal这个方法中的this为我们当前这里的this
+        // 想要改变方法中的this的值
+        // 使用this来调用Animal（这样就改变了Animal中的this）
+        // Animal.call(this,age,life);
+        /**
+         * Function.call(obj,para1,para2,.....)
+         * 使用obj对象调用function函数，从第二个参数起，
+         * 后面的参数是调用funciton这个方法时传入的参数
+         * 
+         * 使Function被调用，被obj调用，后面是调用传入的参数
+         * 
+        */
+        // var aa = this;
+        // Animal.call(aa,age,life)
+
+        // apply与call可以起到相同的作用，只是两者传参的方式不同，
+        // apply把调用方法的参数放在数组当中，而call是直接传入
+        Animal.apply(this,[age,life]);
+
+        this.sex = sex;
+    }
+    
+    // Person.prototype.maofa = "黄色";
+    // Person.prototype.run = function(){
+    //     console.log("run......")
+    // }
+    //　继承原型对象中的内容（属性和方法）
+
+    // 直接赋值，不合适
+    // Person的原型对象，和Animal的原型对象同时指向一个对象
+    // 当修改其中一个，会导致另一个随之变化
+    // Person.prototype = Animal.prototype;
+
+    // 解决
+    // 新建一个构造函数（空的），使空的构造函数的原型对象指向Animal的原型对象
+    // 新建一个空构造函数的对象，作为Person的原型对象
+    function temp(){}
+    temp.prototype = Animal.prototype;
+    // var temp = new Animal();
+    Person.prototype = new temp();
+    // 设置原型对象的 constructor属性
+    Person.prototype.constructor = Person;
+    Person.prototype.run22 = function(){
+        console.log("run222");
+    }
+
+
+    var aPerson = new Person(100,"no life",true);
+    console.log(aPerson);
+    console.log("aPerson---",aPerson.constructor);
+
+    aPerson.run();
+
+    var  otherAnimal = new Animal(100,"life");
+    console.log(otherAnimal);
+    // constructor（构造函数）保存了创建对象时所使用的构造函数
+    console.log(otherAnimal.constructor);
+
+
+    // Person()
+    
+
+
+
+</script>

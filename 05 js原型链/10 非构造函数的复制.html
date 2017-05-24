@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 基本类型
+    var a = 100;
+    var b = a;
+    a = 300;
+    console.log(b);
+    // 引用类型
+    var aa = [1,2]
+    var bb = aa;
+    aa.push(3);
+    console.log(bb);
+
+</script>
+
+<script>
+    // 引用类型的复制
+    // 对象--> 工程模式和构造函数
+    // 字面量创建的对象
+    var obj = {name:"12",age:"45"} 
+    var obj2 = {};
+    obj2.name = obj.name;
+    obj2.age = obj.age;
+    console.log(obj2);
+
+    obj2.name = "xiaowang";
+    console.log(obj);
+
+    // 封装一个方法，用来 实现引用类型的复制
+    // 浅拷贝 （只拷贝了一层，如果对象中当中有其他引用类型，那么复制的还是指针）
+    function theCopy(old){
+        var newobj = {};
+        for (var i in old){
+            console.log(old[i],"-----------");
+            newobj[i] = old[i];
+        }
+        return newobj;
+    }
+    var china = {
+        name:"中国",
+        city:["北京","上海"]
+    }
+    var china2 = theCopy(china);
+    
+    china2.name = "美国";
+    console.log(china);
+
+    china2.city.push("南京");
+    console.log(china);
+
+
+
+
+</script>
+<script>
+    var a = {};
+    console.log(typeof a);
+    var  aa = ["222",'444']
+    for (var i in aa){
+        console.log(aa[i]);
+    }
+    console.log(aa);
+    // new Object()
+    // new Array()
+    // [] {}
+    // 想知道一个变量是数组还是对象，那么就看他创建时用的什么构造函数
+    // 数组Array 对象Object
+
+</script>
+<script>
+    // 深拷贝，完全拷贝  递归
+    function deepCopy(old,newObject){
+       var  newobj = newObject || {}
+        for (var i in old){
+            // newobj[i] = old[i];
+            if (typeof old[i] == "object"){
+                // 引用类型 [] {}
+                var newdata = old[i].constructor === Array ? [] : {};
+                newobj[i] = deepCopy(old[i],newdata)
+            
+            }
+            else{
+                newobj[i] = old[i];
+            }
+        }
+        return newobj;
+    }
+    var china = {
+        name:"中国",
+        province:[
+            {
+                pName:"河南",
+                pCity:["郑州","南阳"]
+            },
+            {
+                pName:"山西",
+                pCity:["山西1","山西2"]
+            }
+        ]
+    }
+    console.log(china);
+    var china2 = deepCopy(china);
+    console.log(china2);
+
+</script>
+
+<script>
+    var obj = {
+        "name":"xiaomei",
+        "age":["d","b"]
+    }
+    // JSON javascript object notation js对象标记
+    // 数据格式 （是一种轻量级的数据交换格式）
+    // 完全独立于语言 文本格式
+    // 语法规则1.数据在键值对当中，2.逗号分隔 3.花括号保存对象[]保存数组
+
+    // json格式的数据
+    var json = '{"name":"xiaomei","age":["d","b"]}'
+    // 将json字符串转换为对象
+    var obj = JSON.parse(json);
+    console.log(obj);
+
+    // 将对象转换为字符串
+    var string = JSON.stringify(obj);
+    console.log(string);
+
+
+</script>
+
+<script>
+    var china = {
+        name:"中国",
+        province:[
+            {
+                pName:"河南",
+                pCity:["郑州","南阳"]
+            },
+            {
+                pName:"山西",
+                pCity:["山西1","山西2"]
+            }
+        ]
+    }
+    // 借助json字符串完成一个深复制
+    var china2 = JSON.parse(JSON.stringify(china));
+    console.log(china2);
+
+</script>
+
+<script>
+    var obj = {
+        "name":"xiaomei",
+        "age":["d","b"]
+    }
+    // xml 另一种数据交换格式 
+    // 可扩展的标记语言 用来存储和传输数据
+    // html  
+    /*
+    
+    <person>
+        <name>xiaomei</name>
+        <age>
+            <age1>d<age1>
+            <age1>b</age1>
+        </age1>
+    </person>
+    */ 
+</script>

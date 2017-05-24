@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        body,html{
+            height: 100%;
+        }
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(white -50%,grey,black)
+        }
+        main{
+            width: 100%;
+            height: 100%;
+            max-width: 600px;
+            max-height: 400px;
+
+            background-image: url(keys.png);
+            background-size: 100% 100%;
+            border: 10px solid black;
+            border-radius: 8px;
+            border-top-width: 40px;
+            border-left-width: 20px;
+            border-right-width: 20px;
+
+            display: flex;
+            /*justify-content: */
+            /*flex-grow: */
+
+            box-shadow: 0 0 20px rgb(100,100,100);
+            
+
+        }
+        main div{
+            /*width: calc(100%  / 9);
+            height: 100%;
+            float: left;*/
+
+            flex-basis: calc(100% / 9);
+            /*height: 40%;*/
+            /*align-items: flex-end;*/
+
+            
+        }
+        .active{
+            /*r:red g:green b:blue a:alpha 透明度*/
+            background:linear-gradient(rgba(255,255,255,0) ,rgba(255,255,255,0),#C3C3C3);
+        }
+    </style>
+</head>
+<body>
+    <!--<audio src="notes/1.oga"></audio>-->
+    <audio src="notes/1.oga"></audio>
+    <audio src="notes/2.oga"></audio>
+    <audio src="notes/3.oga"></audio>
+    <audio src="notes/4.oga"></audio>
+    <audio src="notes/5.oga"></audio>
+    <audio src="notes/6.oga"></audio>
+    <audio src="notes/7.oga"></audio>
+    <audio src="notes/8.oga"></audio>
+    <audio src="notes/9.oga"></audio>
+    <main>
+        <!--<div data-index="0" ></div>
+        <div data-index="1"></div>
+        <div data-index="2"></div>
+        <div data-index="3"></div>
+        <div data-index="4"></div>
+        <div data-index="5"></div>
+        <div data-index="6"></div>
+        <div data-index="7"></div>
+        <div data-index="8"></div>-->
+        <div ></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </main>
+</body>
+</html>
+<script>
+    var divs = document.querySelectorAll("main div");
+    var audios = document.querySelectorAll("body>audio");
+    // 使用局部变量i区分div
+    // for(let i = 0;i < divs.length;i ++){
+    //     divs[i].onmousedown = function(){
+    //         // 调用play方法播放音频
+    //         play(i);
+    //     }
+    // }
+
+    // 使用自定义属性区分div
+    // for(var i = 0;i < divs.length;i ++){
+    //     divs[i].dataset.index = i;
+    //     divs[i].onmousedown = function(event){
+    //         // play(this.dataset.index);
+    //         play(event.target.dataset.index);
+    //     }
+    // }
+
+    // 给标签对象增加一个属性值tag 
+    for(var i = 0;i < divs.length;i ++){
+        divs[i].tag = i;
+        divs[i].onmousedown = function(event){
+            play(event.target.tag);
+            // 给元素的类名列表中添加一项
+            event.target.classList.add("active");
+        }
+        divs[i].onmouseup = function(event){
+            // 给元素的类名列表中删除一项
+            event.target.classList.remove("active");
+        }
+    }
+
+
+    // 检测键盘事件
+    window.onkeydown = function(event){
+        console.log(event.keyCode);
+        // 数字键盘是1-9 字符代码 49-57
+        var inputCode = event.keyCode;
+        if (inputCode >= 49 && inputCode <= 57){
+            // 输入了1到9之间的数字
+            play(inputCode-49);
+            divs[inputCode-49].classList.add("active")
+        }
+
+
+    }
+    window.onkeyup = function(event){
+        // console.log(event.keycode);
+        var inputCode = event.keyCode;
+        if (inputCode >= 49 && inputCode <= 57){
+            divs[inputCode-49].classList.remove("active");
+        }
+    }
+
+    // 封装一个方法
+    // 功能：播放某个音频
+    // 参数：指定是第一个音频audio 从0开始
+    function play(index){
+        audios[index].load();
+        audios[index].play();
+    }
+
+    // play(0);
+
+</script>

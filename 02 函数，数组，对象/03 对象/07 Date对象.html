@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var now = new Date();
+    console.log(now);
+
+    console.log(now.getFullYear());
+
+    // 此时的now为字符串类型，不能使用Date对象的方法
+    now = Date();
+    console.log(now);
+    // console.log(now.getFullYear());
+
+    var test = +new Date();
+    console.log(test);
+    // 获取当前时间的毫秒数
+    console.log(Date.now());
+
+
+    var date2 = new Date(1487841765656 - 24*3600);
+    console.log(date2.getTime());
+</script>
+
+<script>
+    // setInterval(function(){
+    //     console.log("111111111",new Date());
+    // },1000);
+
+    
+    /**
+     * 定时器
+     * 参数1 ，表示每隔一定时间调用的方法
+     * 参数2：表示隔多长时间调一次方法 单位毫秒数
+     * */
+    function aa(){
+        console.log("11111");
+    }
+    setInterval(aa,1000);
+
+    // 方法：
+    // 如果是调用，那么要加()
+    // 如果是传递（传值） 不加()
+</script>

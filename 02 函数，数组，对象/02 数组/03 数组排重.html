@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 外排重
+    var array = [2,3,6,8,7,8,7,6,3,9];
+    function paiChong1(array){
+        var result = [];
+        array.forEach(function(item){
+            if (!result.includes(item)){
+                result.push(item);
+            }
+        })
+        return result;
+    }
+    console.log(paiChong1(array));
+
+    function paiChong2(array){
+        var result = [];
+
+        array.forEach(function(item){
+            function fun(ele){
+                return ele == item;
+            }
+            var index = result.findIndex(fun);
+            console.log("index:"+index);
+            if(index == -1){
+                result.push(item);
+            }
+            // if(result.findIndex(fun) == -1){
+            //     result.push(item);
+            // }
+
+
+            if(result.findIndex(function(ele){
+                return ele == item;
+            }) == -1){
+                result.push(item);
+            }
+        })
+
+
+        return result;
+    }
+
+    var newArr = paiChong2(array);
+    console.log(newArr);
+
+</script>
+
+<script>
+    // 内排重
+    // 从第二个元素起，拿这个元素跟前面所有的元素进行对比，
+    // 如果相同则删除
+    function paiChong3(array){
+        for(var i = 1;i < array.length;i ++){
+            // array[i]
+            for(var j = 0;j < i;j++){
+                // array[j];
+                if (array[i] == array[j]){
+                    
+                    array.splice(i,1);
+                    i--;
+                    break;
+                }
+            }
+        }
+        return array;
+    }
+
+    var arr = [1,1,3,4,6,4,3,1]
+    arr = paiChong3(arr);
+    console.log(arr);
+
+</script>

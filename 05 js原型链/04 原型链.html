@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function Person(name){
+        this.name = name;
+        this.fuse = "黄色";
+        this.run = function(){
+            console.log(this.name + this.fuse);
+        }
+    }
+    var xiaoWang = new Person("小王");
+    console.log(xiaoWang);
+
+
+// new --创建对象--实例化对象
+    var laoWang = new Person("老王");
+    console.log(laoWang);
+
+    /**
+     * 创建对象时，每个对象对于相同的属性和方法都要有一份自己的副本
+     * 就造成了资源的浪费
+     * 解决方案：为构造函数设置一个原型属性（prototype）
+     *          这个原型属性就是一个对象，可以包含所有实例化对象
+     *          所共享的属性和方法
+     * */ 
+</script>
+<script>
+    function Animal(name){
+        // this.age = 23;
+        // this.run = function(){
+        //     console.log(this.age);
+        // }
+        this.name = name;
+
+    }
+    // 将每个对象共享的属性和方法放置在构造函数的原型对象当中
+    Animal.prototype.age = 23;
+    Animal.prototype.run = function(){
+        console.log(this.age);
+    }
+
+
+    var aAnimal = new Animal("xiaoHei");
+    
+    var other = new Animal("xiaoheihei");
+
+    console.log(aAnimal,other);
+
+    console.log(aAnimal.age);
+
+</script>
+
+<!--
+    原型链：
+
+    每个对象都有原型对象
+    原型对象也是一个对象
+    对象也可以有一个原型对象
+    。。。。。
+
+    是一个对象
+    直到对象的原型对象为null为止
+
+    就构成了一个原型链
+
+    当查找一个对象上的方法或者属性时，会沿着原型链一直找，
+    找到则结束
+    如果找不到，那么到达原型链对象为null时结束
+
+    所以只要存在于对象的原型链中的属性和方法，对象都是可以使用的
+
+-->
+
+<script>
+    var now = new Date();
+    // now.getTime() + 24* ....
+</script>

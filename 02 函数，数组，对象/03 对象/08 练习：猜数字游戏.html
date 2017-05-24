@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // 获取一个[1-100]之间的随机数
+
+    function getRandom(min, max) {
+        var random = Math.random();
+        var rand2 = random * (max - min);
+        return Math.ceil(rand2 + min);
+    }
+    // 获取到一个1-100之间的随机数
+    var randomInt = getRandom(1, 100);
+    console.log(randomInt);
+
+    var count = 3;
+    while (count > 0) {
+        var result = prompt("请输入1-100之间的数字", '1');
+        console.log(result);
+        if (result == null) {
+            alert("Game Over");
+            break;
+        }
+
+        if (result == randomInt) {
+            alert("恭喜您！猜对了");
+            break;
+        }
+        count--;
+        if (count == 0) {
+            alert('机会用完，游戏结束');
+            break;
+        }
+        if (result > randomInt) {
+            alert("您输入的数字大,请重新输入，您还有" + count + "次机会");
+        }
+        else {
+            alert("您输入的数字小，请重新输入，您还有" + count + "次机会");
+        }
+    }
+
+</script>

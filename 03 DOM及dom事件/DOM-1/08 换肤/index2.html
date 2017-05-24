@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="red.css">
+    <link rel="stylesheet" href="yellow.css">
+    <link rel="stylesheet" href="blue.css">
+
+
+    <style lang="">
+        html,
+        body {
+            height: 100%;
+        }
+
+
+        body {
+            margin: 0;
+        }
+
+
+        nav {
+            padding: 10px;
+            background-color: black;
+        }
+
+
+        nav span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+        }
+
+
+        span:nth-of-type(1) {
+            background-color: red;
+        }
+
+
+        span:nth-of-type(2) {
+            background-color: yellow;
+        }
+
+
+        span:nth-of-type(3) {
+            background-color: blue;
+        }
+
+
+        main {
+            height: 700px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <span data-color="1"></span>
+        <span data-color="2"></span>
+        <span data-color="3"></span>
+    </nav>
+    <main>
+
+    </main>
+</body>
+
+</html>
+<script>
+    var btns = document.querySelectorAll("nav span");
+
+    // var links = document.querySelectorAll("link");
+    // console.log(links);
+    // 获取文档中的所有的样式表（link style）
+    var links = document.styleSheets;
+    console.log("lins----", links);
+    // 禁用某个样式表 disabled属性设置为true
+    // document.styleSheets[0].disabled = true;      
+
+    // 默认 使第一个样式表可用，其他不可用
+    enabled(0);
+
+    
+
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = function (event) {
+            console.log("click----------------")
+            // 表示当前被点击的元素
+            // btns[i] -->let
+            // event.target -->var let 
+            // this -->var let
+
+            var color = event.target.dataset.color;
+            enabled(color-1)
+
+            // for (var j = 0; j < links.length - 1; j++) {
+            //     links[j].disabled = !(color - 1 == j);
+            // }
+
+            // for (var j = 0;j < links.length-1;j ++){
+            //     if (j == color-1){
+            //         // 解除禁用，使用当前样式表
+            //         links[j].disabled = false;
+            //     }
+            //     else {
+            //         // 禁用当前样式表
+            //         links[j].disabled = true;
+            //     }
+
+            // }
+        }
+    }
+
+    // 封装一个方法 
+    // 功能：根据参数index，使样式表集合中的第index个样式表可用，其他不可用
+    // index 从0开始
+    function enabled(index) {
+        // 第index个样式表 ->false
+        // 其余 true
+        for (var j = 0; j < links.length - 1; j++) {
+            links[j].disabled = !(index == j);
+        }
+    }
+
+</script>
